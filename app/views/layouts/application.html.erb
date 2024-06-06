@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>GovukSearchUiPrototype</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-</html>
+<%= render "govuk_publishing_components/components/layout_for_public", {
+  title: "GOV.UK Search",
+  omit_feedback_form: true
+} do %>
+  <%= yield %>
+<% end %>
