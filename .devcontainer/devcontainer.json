@@ -5,8 +5,16 @@
 	"image": "mcr.microsoft.com/devcontainers/ruby:1-3.3-bullseye",
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "ruby --version",
+	"postCreateCommand": "bundle install",
 
 	// Configure tool-specific properties.
-	"customizations": {}
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"rubyLsp.rubyVersionManager": {
+					"identifier": "none"
+				}
+			}
+		}
+	}
 }
