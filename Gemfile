@@ -11,6 +11,7 @@ gem "puma", ">= 5.0"
 gem "sprockets-rails"
 gem "tzinfo-data", platforms: %i[windows jruby]
 
+gem "google-cloud-discovery_engine"
 gem "govuk_publishing_components"
 
 group :development, :test do

@@ -1,0 +1,6 @@
+<p class="govuk-body">Results for &ldquo;<strong><%= query %></strong>&rdquo;:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <% @results.each do |result| %>
+    <li><%= link_to result.document.struct_data["title"], result.document.struct_data["link"], class: "govuk-link" %></li>
+  <% end %>
+</ul>
