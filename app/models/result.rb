@@ -10,7 +10,7 @@ class Result
   end
 
   def date
-    Time.new(public_timestamp_datetime).strftime("%-d %B %Y")
+    Time.new(public_timestamp_datetime)
   end
 
 private
