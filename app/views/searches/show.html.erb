@@ -15,15 +15,16 @@
       } %>
     <% end%>
   </div>
-  <% if search.corrected_query? %>
-    <p class="govuk-body">
-      Did you mean &ldquo;<strong><%= link_to search.corrected_query, search_path(q: search.corrected_query), class: "govuk-link" %></strong>&rdquo;?
-    </p>
-  <% end %>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+    <% if search.corrected_query? %>
+      <p class="govuk-body">
+        Did you mean &ldquo;<strong><%= link_to search.corrected_query, search_path(q: search.corrected_query), class: "govuk-link" %></strong>&rdquo;?
+      </p>
+    <% end %>
+
     <%= render "govuk_publishing_components/components/heading", {
       text: pluralize(search.total_size, "result"),
       id: "js-result-count",
