@@ -9,9 +9,7 @@
 
     <%= form_for(:search, method: :get) do %>
       <%= render "govuk_publishing_components/components/search", {
-        aria_controls: "js-search-results-info",
         id: "finder-keyword-search",
-        name: "q",
         type: 'search',
         value: query,
       } %>
