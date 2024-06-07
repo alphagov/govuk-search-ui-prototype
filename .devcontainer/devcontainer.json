@@ -2,14 +2,19 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/ruby
 {
 	"name": "GOV.UK Search UI Prototype",
-	"image": "mcr.microsoft.com/devcontainers/ruby:1-3.3-bullseye",
-
-	// Use 'postCreateCommand' to run commands after the container is created.
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"RUBY_VERSION": "3.3.2"
+		}
+	},
 	"postCreateCommand": "bundle install",
-
-	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
+			"extensions": [
+				"Shopify.ruby-lsp",
+				"KoichiSasada.vscode-rdbg"
+			],
 			"settings": {
 				"rubyLsp.rubyVersionManager": {
 					"identifier": "none"
@@ -20,5 +25,6 @@
 				}
 			}
 		}
-	}
+	},
+	"remoteUser": "devcontainer"
 }
