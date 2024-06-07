@@ -1,9 +1,12 @@
 module DiscoveryEngine
+  PAGE_SIZE = 10
+
   extend self
 
   def search(query)
     client.search(
       query:,
+      page_size: PAGE_SIZE,
       serving_config:,
     ).response
   end

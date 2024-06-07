@@ -3,10 +3,14 @@ class Result
     @discovery_engine_result = discovery_engine_result
   end
 
-  delegate :title, :link, to: :struct_data
+  delegate :title, :link, :description, :public_timestamp_datetime, to: :struct_data
 
   def url
     link.start_with?("http") ? link : "https://www.gov.uk#{link}"
+  end
+
+  def date
+    Time.new(public_timestamp_datetime).strftime("%-d %B %Y")
   end
 
 private
