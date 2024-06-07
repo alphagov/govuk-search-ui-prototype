@@ -10,6 +10,8 @@ class Result
   end
 
   def date
+    return nil unless public_timestamp_datetime.present?
+
     Time.new(public_timestamp_datetime)
   end
 
