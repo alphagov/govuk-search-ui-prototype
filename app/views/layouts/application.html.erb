@@ -1,6 +1,7 @@
 <%= render "govuk_publishing_components/components/layout_for_public", {
   title: "GOV.UK Search",
-  omit_feedback_form: true
+  omit_feedback_form: true,
+  global_bar: render(partial: "prototype_banner")
 } do %>
   <%= yield %>
 <% end %>
