@@ -1,14 +1,12 @@
 class SearchesController < ApplicationController
-  def show
-    @results = search.results
-  end
+  def show; end
 
-  helper_method :query
+  helper_method :search, :query
 
 private
 
   def search
-    @search ||= DiscoveryEngine.search(query)
+    @search ||= DiscoveryEngine.search(query).then { Search.new(_1) }
   end
 
   def query

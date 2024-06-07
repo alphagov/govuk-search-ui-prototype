@@ -1,6 +1,16 @@
-<p class="govuk-body">Results for &ldquo;<strong><%= query %></strong>&rdquo;:</p>
+<% if search.corrected_query? %>
+  <p class="govuk-body">
+    Did you mean &ldquo;<strong><%= link_to search.corrected_query, search_path(q: search.corrected_query) %></strong>&rdquo;?
+  </p>
+<% end %>
+
+<p class="govuk-body">
+  <%= pluralize(search.total_size, "result") %>
+  for &ldquo;<strong><%= query %></strong>&rdquo;:
+</p>
+
 <ul class="govuk-list govuk-list--bullet">
-  <% @results.each do |result| %>
-    <li><%= link_to result.document.struct_data["title"], result.document.struct_data["link"], class: "govuk-link" %></li>
+  <% search.results.each do |result| %>
+    <li><%= link_to result.title, result.url, class: "govuk-link" %></li>
   <% end %>
 </ul>
