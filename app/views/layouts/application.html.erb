@@ -3,7 +3,7 @@
   <!--[if gt IE 8]><!--><html class="govuk-template" lang="en"><!--<![endif]-->
   <head>
     <meta charset="utf-8" />
-    <title>GOV.UK &emdash; Search Prototype</title>
+    <title>GOV.UK &mdash; Search Prototype</title>
 
     <%= csrf_meta_tags %>
 
@@ -40,9 +40,16 @@
 
     <div class="gem-c-layout-for-public__blue-bar govuk-width-container"></div>
 
+    <div class="govuk-width-container">
+      <%= render "govuk_publishing_components/components/phase_banner", {
+        phase: "prototype",
+        message: "This is a prototype for improvements to search on GOV.UK."
+      } %>
+    </div>
+
     <div id="wrapper" class="govuk-width-container">
       <%= yield :before_content %>
-      <main class="govuk-main-wrapper" id="content">
+      <main class="govuk-main-wrapper govuk-!-padding-top-0" id="content">
         <%= yield %>
       </main>
     </div>
