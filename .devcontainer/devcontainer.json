@@ -31,6 +31,7 @@
 		"source=${localEnv:HOME}/.config/gcloud,target=/home/devcontainer/.config/gcloud,type=bind,consistency=cached"
 	],
 	"remoteEnv": {
-		"DISCOVERY_ENGINE_SERVING_CONFIG": "projects/search-api-v2-integration/locations/global/collections/default_collection/engines/govuk/servingConfigs/default_search"
+		"DISCOVERY_ENGINE_SERVING_CONFIG": "projects/search-api-v2-integration/locations/global/collections/default_collection/engines/govuk/servingConfigs/default_search",
+		"DISCOVERY_ENGINE_DATASTORE": "projects/search-api-v2-integration/locations/global/collections/default_collection/dataStores/govuk_content"
 	}
 }
