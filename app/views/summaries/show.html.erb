@@ -94,6 +94,18 @@
         <%= render "govuk_publishing_components/components/inset_text", {
           text: summary.content.html_safe
         } %>
+        <% if summary.safety_attributes? %>
+          <%= render "govuk_publishing_components/components/summary_list", {
+            title: "Safety information",
+            items: summary.safety_attributes.map { { field: _1, value: _2 } }
+          } %>
+        <% else %>
+          <%= render "govuk_publishing_components/components/summary_list", {
+            title: "Safety information",
+          } do %>
+            <p class="govuk-body">No safety information returned (are you using the preview model?)</p>
+          <% end %>
+        <% end %>
       <% end %>
     <% else %>
       <p class="govuk-body">Enter a query to generate a summary.</p>

@@ -21,6 +21,17 @@ class Summary
     discovery_engine_response.summary.summary_skipped_reasons || []
   end
 
+  def safety_attributes?
+    safety_attributes.present?
+  end
+
+  def safety_attributes
+    attrs = discovery_engine_response.summary.safety_attributes
+    return unless attrs
+
+    attrs.categories.zip(attrs.scores).to_h
+  end
+
 private
 
   attr_reader :discovery_engine_response
