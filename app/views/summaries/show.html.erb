@@ -45,6 +45,15 @@
           value: prompt_preamble,
         } %>
 
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: "Summary result count"
+          },
+          hint: "The number of top results to consider when generating the summary (up to 10).",
+          name: "summary_result_count",
+          value: summary_result_count,
+        } %>
+
         <%= render "govuk_publishing_components/components/checkboxes", {
           name: "options[]",
           heading: "Options",
@@ -106,6 +115,18 @@
             <p class="govuk-body">No safety information returned (are you using the preview model?)</p>
           <% end %>
         <% end %>
+
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "Relevant results used to generate summary",
+          heading_level: 2,
+          font_size: "m",
+          margin_bottom: 2,
+        } %>
+
+        <%= render "govuk_publishing_components/components/list", {
+          visible_counters: true,
+          items: summary.results_considered.map { link_to(_1.title, _1.url, class: "govuk-link") }
+        } %>
       <% end %>
     <% else %>
       <p class="govuk-body">Enter a query to generate a summary.</p>

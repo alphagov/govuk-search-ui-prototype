@@ -1,9 +1,11 @@
 class SummariesController < ApplicationController
   DEFAULT_PROMPT_PREAMBLE = nil
+  DEFAULT_SUMMARY_RESULT_COUNT = 5
+  MAX_SUMMARY_RESULT_COUNT = 10
 
   def show; end
 
-  helper_method :summary, :query, :prompt_preamble, :ignore_adversarial,
+  helper_method :summary, :query, :prompt_preamble, :summary_result_count, :ignore_adversarial,
                 :ignore_non_summary_seeking, :use_preview_model
 
 private
@@ -14,10 +16,11 @@ private
     @summary ||= DiscoveryEngine.summary(
       query,
       prompt_preamble:,
+      summary_result_count:,
       ignore_adversarial:,
       ignore_non_summary_seeking:,
       use_preview_model:,
-    ).then { Summary.new(_1) }
+    ).then { Summary.new(_1, summary_result_count:) }
   end
 
   def query
@@ -26,6 +29,13 @@ private
 
   def prompt_preamble
     params.permit(:prompt_preamble)[:prompt_preamble].presence || DEFAULT_PROMPT_PREAMBLE
+  end
+
+  def summary_result_count
+    [
+      params.permit(:summary_result_count)[:summary_result_count]&.to_i || DEFAULT_SUMMARY_RESULT_COUNT,
+      MAX_SUMMARY_RESULT_COUNT,
+    ].min
   end
 
   def ignore_adversarial
