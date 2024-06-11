@@ -11,6 +11,27 @@ module DiscoveryEngine
     ).response
   end
 
+  def summary(query, prompt_preamble:, ignore_adversarial:, ignore_non_summary_seeking:, use_preview_model:)
+    ignore_adversarial ||= false
+    ignore_non_summary_seeking ||= false
+    use_preview_model ||= false
+
+    search_service.search(
+      query:,
+      page_size: PAGE_SIZE,
+      content_search_spec: {
+        summary_spec: {
+          summary_result_count: 10,
+          ignore_adversarial_query: ignore_adversarial,
+          ignore_non_summary_seeking_query: ignore_non_summary_seeking,
+          model_spec: { version: use_preview_model ? "preview" : "stable" },
+          model_prompt_spec: { preamble: prompt_preamble }.compact,
+        },
+      }.compact,
+      serving_config:,
+    ).response
+  end
+
   def complete(query)
     completion_service.complete_query(
       query:,

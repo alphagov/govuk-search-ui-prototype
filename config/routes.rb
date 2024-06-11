@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resource :search, only: [:show]
+  resource :summary, only: [:show]
 
   root "hello#index"
 end

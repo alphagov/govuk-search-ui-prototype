@@ -1,0 +1,12 @@
+.summary-settings {
+  padding: govuk-spacing(4);
+  border: 4px solid govuk-colour("mid-grey");
+
+  .govuk-hint {
+    @include govuk-font($size: 16);
+  }
+
+  .gem-c-label {
+    @include govuk-typography-weight-bold;
+  }
+}

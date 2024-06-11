@@ -1,0 +1,102 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/breadcrumbs", {
+      collapse_on_mobile: true,
+      breadcrumbs: [
+        {
+          title: "Home",
+          url: root_path
+        },
+      ]
+    } %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "🤖 Summary playground",
+      heading_level: 1,
+      font_size: "xl",
+      margin_bottom: 6,
+    } %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <div class="summary-settings">
+      <%= form_for(:summary, method: :get) do |f| %>
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: "Query"
+          },
+          search_icon: true,
+          name: "q",
+          value: query,
+        } %>
+
+        <%= render "govuk_publishing_components/components/textarea", {
+          label: {
+            text: "Custom prompt preamble"
+          },
+          hint: 'This allows us to customise how the model answers. See <a href="https://cloud.google.com/generative-ai-app-builder/docs/get-search-summaries?authuser=1#custom-summaries" class="govuk-link">Vertex docs</a> for examples.'.html_safe,
+          name: "prompt_preamble",
+          value: prompt_preamble,
+        } %>
+
+        <%= render "govuk_publishing_components/components/checkboxes", {
+          name: "options[]",
+          heading: "Options",
+          heading_size: "s",
+          small: true,
+          hint_text: "Additional options to customise the summary.",
+          items: [
+            {
+              label: "Ignore adversarial queries",
+              value: "ignore_adversarial",
+              checked: ignore_adversarial
+            },
+            {
+              label: "Ignore non-summary seeking queries",
+              value: "ignore_non_summary_seeking",
+              checked: ignore_non_summary_seeking
+            },
+            {
+              label: "Use preview model",
+              value: "use_preview_model",
+              checked: use_preview_model
+            },
+          ]
+        } %>
+
+        <%= render "govuk_publishing_components/components/button", {
+          text: "Generate summary"
+        } %>
+      <% end %>
+    </div>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <% if query.present? %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: query,
+        heading_level: 2,
+        font_size: "m",
+        margin_bottom: 2,
+      } %>
+      <% if summary.skipped? %>
+        <%= render "govuk_publishing_components/components/error_summary", {
+          title: "Summary was skipped",
+          description: "Vertex refused to generate a summary for this query for the following reasons:",
+          items: summary.skipped_reasons.map { { text: _1 } }
+        } %>
+      <% else %>
+        <%= render "govuk_publishing_components/components/inset_text", {
+          text: summary.content.html_safe
+        } %>
+      <% end %>
+    <% else %>
+      <p class="govuk-body">Enter a query to generate a summary.</p>
+    <% end %>
+  </div>
+</div>
