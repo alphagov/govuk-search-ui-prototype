@@ -90,6 +90,12 @@
       <%= render "govuk_publishing_components/components/heading", {
         text: query,
         heading_level: 2,
+        font_size: "l",
+        margin_bottom: 2,
+      } %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Summary",
+        heading_level: 3,
         font_size: "m",
         margin_bottom: 2,
       } %>
@@ -104,21 +110,19 @@
           text: summary.content.html_safe
         } %>
         <% if summary.safety_attributes? %>
-          <%= render "govuk_publishing_components/components/summary_list", {
-            title: "Safety information",
-            items: summary.safety_attributes.map { { field: _1, value: _2 } }
-          } %>
-        <% else %>
-          <%= render "govuk_publishing_components/components/summary_list", {
-            title: "Safety information",
+          <%= render "govuk_publishing_components/components/details", {
+            title: "Summary safety information"
           } do %>
-            <p class="govuk-body">No safety information returned (are you using the preview model?)</p>
+            <%= render "govuk_publishing_components/components/summary_list", {
+              title: "Safety information",
+              items: summary.safety_attributes.map { { field: _1, value: _2 } }
+            } %>
           <% end %>
         <% end %>
 
         <%= render "govuk_publishing_components/components/heading", {
-          text: "Relevant results used to generate summary",
-          heading_level: 2,
+          text: "Results",
+          heading_level: 3,
           font_size: "m",
           margin_bottom: 2,
         } %>
