@@ -11,19 +11,32 @@ module DiscoveryEngine
     ).response
   end
 
-  def summary(query, prompt_preamble:, summary_result_count:, ignore_adversarial:, ignore_non_summary_seeking:, use_preview_model:)
+  def summary(query, type:, prompt_preamble:, summary_result_count:, ignore_adversarial:, ignore_non_summary_seeking:, use_preview_model:)
+    content_search_spec = if type == "summary"
+                            {
+                              extractive_content_spec: {
+                                max_extractive_answer_count: 1,
+                              },
+                              summary_spec: {
+                                summary_result_count:,
+                                ignore_adversarial_query: ignore_adversarial,
+                                ignore_non_summary_seeking_query: ignore_non_summary_seeking,
+                                model_spec: { version: use_preview_model ? "preview" : "stable" },
+                                model_prompt_spec: { preamble: prompt_preamble }.compact,
+                              },
+                            }
+                          elsif type == "snippets"
+                            {
+                              snippet_spec: {
+                                return_snippet: true,
+                              },
+                            }
+                          end
+
     search_service.search(
       query:,
       page_size: PAGE_SIZE,
-      content_search_spec: {
-        summary_spec: {
-          summary_result_count:,
-          ignore_adversarial_query: ignore_adversarial,
-          ignore_non_summary_seeking_query: ignore_non_summary_seeking,
-          model_spec: { version: use_preview_model ? "preview" : "stable" },
-          model_prompt_spec: { preamble: prompt_preamble }.compact,
-        },
-      }.compact,
+      content_search_spec: content_search_spec&.compact,
       serving_config:,
     ).response
   end

@@ -1,7 +1,8 @@
 class Summary
-  def initialize(discovery_engine_response, summary_result_count:)
+  def initialize(discovery_engine_response, summary_result_count:, displayed_text_type:)
     @discovery_engine_response = discovery_engine_response
     @summary_result_count = summary_result_count
+    @displayed_text_type = displayed_text_type
   end
 
   delegate :attribution_token, to: :discovery_engine_response
@@ -33,11 +34,12 @@ class Summary
     attrs.categories.zip(attrs.scores).to_h
   end
 
-  def results_considered
-    discovery_engine_response.results.first(summary_result_count).map { Result.new(_1) }
+  def results
+    discovery_engine_response.results.first(summary_result_count)
+      .map { Result.new(_1, displayed_text_type:) }
   end
 
 private
 
-  attr_reader :discovery_engine_response, :summary_result_count
+  attr_reader :discovery_engine_response, :summary_result_count, :displayed_text_type
 end

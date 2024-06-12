@@ -1,12 +1,14 @@
 class SummariesController < ApplicationController
+  DEFAULT_TYPE = "summary".freeze
   DEFAULT_PROMPT_PREAMBLE = nil
   DEFAULT_SUMMARY_RESULT_COUNT = 5
   MAX_SUMMARY_RESULT_COUNT = 10
 
   def show; end
 
-  helper_method :summary, :query, :prompt_preamble, :summary_result_count, :ignore_adversarial,
-                :ignore_non_summary_seeking, :use_preview_model
+  helper_method :summary, :query, :type, :prompt_preamble, :summary_result_count,
+                :ignore_adversarial, :ignore_non_summary_seeking, :use_preview_model,
+                :summary_params
 
 private
 
@@ -15,25 +17,30 @@ private
 
     @summary ||= DiscoveryEngine.summary(
       query,
+      type:,
       prompt_preamble:,
       summary_result_count:,
       ignore_adversarial:,
       ignore_non_summary_seeking:,
       use_preview_model:,
-    ).then { Summary.new(_1, summary_result_count:) }
+    ).then { Summary.new(_1, summary_result_count:, displayed_text_type: type) }
   end
 
   def query
-    params.permit(:q)[:q]
+    summary_params[:q]
+  end
+
+  def type
+    summary_params[:type] || DEFAULT_TYPE
   end
 
   def prompt_preamble
-    params.permit(:prompt_preamble)[:prompt_preamble].presence || DEFAULT_PROMPT_PREAMBLE
+    summary_params[:prompt_preamble].presence || DEFAULT_PROMPT_PREAMBLE
   end
 
   def summary_result_count
     [
-      params.permit(:summary_result_count)[:summary_result_count]&.to_i || DEFAULT_SUMMARY_RESULT_COUNT,
+      summary_params[:summary_result_count]&.to_i || DEFAULT_SUMMARY_RESULT_COUNT,
       MAX_SUMMARY_RESULT_COUNT,
     ].min
   end
@@ -51,6 +58,10 @@ private
   end
 
   def options
-    params.permit(options: [])[:options] || []
+    summary_params[:options] || []
+  end
+
+  def summary_params
+    params.permit(:q, :type, :prompt_preamble, :summary_result_count, options: [])
   end
 end

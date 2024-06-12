@@ -6,7 +6,7 @@
     @include govuk-font($size: 16);
   }
 
-  .gem-c-label {
+  .gem-c-label:not(.govuk-radios__label) {
     @include govuk-typography-weight-bold;
   }
 }
