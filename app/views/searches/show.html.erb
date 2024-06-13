@@ -1,5 +1,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    
     <%= render "govuk_publishing_components/components/breadcrumbs", {
       collapse_on_mobile: true,
       breadcrumbs: [
@@ -17,12 +18,8 @@
       margin_bottom: 4,
     } %>
 
-    <%= form_for(:search, method: :get) do %>
-      <%= render "govuk_publishing_components/components/search", {
-        id: "finder-keyword-search",
-        type: 'search',
-        value: query,
-      } %>
+    <%= form_for(:search, method: :get, id: "test") do %>
+      <%= render "search" %>
     <% end%>
   </div>
 </div>

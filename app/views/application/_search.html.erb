@@ -1,0 +1,12 @@
+<%= tag.div id: "autocomplete", class: "govuk-form-group autocomplete", data: { module: "accessible-autocomplete" } do %>
+
+<%= render "govuk_publishing_components/components/search", {
+  id: "finder-keyword-search",
+  class: "autocomplete-input",
+  type: 'search',
+  value: query,
+} %>
+
+<ul class="autocomplete-result-list"></ul>
+
+<% end %>
