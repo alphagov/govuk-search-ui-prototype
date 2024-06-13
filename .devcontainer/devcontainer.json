@@ -33,5 +33,12 @@
 	"remoteEnv": {
 		"DISCOVERY_ENGINE_SERVING_CONFIG": "projects/search-api-v2-integration/locations/global/collections/default_collection/engines/ui_prototype/servingConfigs/default_search",
 		"DISCOVERY_ENGINE_DATASTORE": "projects/search-api-v2-integration/locations/global/collections/default_collection/dataStores/govuk_content"
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"nodeGypDependencies": true,
+			"version": "latest",
+			"nvmVersion": "latest"
+		}
 	}
 }

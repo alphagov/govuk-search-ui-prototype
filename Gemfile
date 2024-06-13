@@ -6,7 +6,7 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
 gem "bootsnap", require: false
 gem "dartsass-rails"
-gem "importmap-rails"
+gem "jsbundling-rails"
 gem "puma", ">= 5.0"
 gem "sprockets-rails"
 gem "tzinfo-data", platforms: %i[windows jruby]
