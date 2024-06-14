@@ -6,6 +6,13 @@
   <%= render "govuk_publishing_components/components/layout_header", {
     environment: "playground",
     product_name: "Search Playground 🤹",
+    navigation_items: [
+      {
+        text: "Summaries & Answers",
+        href: playground_summary_path,
+        active: current_page?(playground_summary_path)
+      },
+    ]
   } %>
   <div id="wrapper" class="govuk-width-container">
     <%= yield :before_content %>
