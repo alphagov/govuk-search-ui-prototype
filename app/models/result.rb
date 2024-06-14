@@ -19,9 +19,9 @@ class Result
   def displayed_text
     case displayed_text_type
     when "summary"
-      derived_struct_data.extractive_answers.first["content"]
+      derived_struct_data.extractive_answers&.first&.[]("content")
     when "snippets"
-      derived_struct_data.snippets.first["snippet"]
+      derived_struct_data.snippets&.first&.[]("snippet")
     else
       description
     end
