@@ -1,0 +1,16 @@
+<%= render "govuk_publishing_components/components/layout_for_admin", {
+  environment: "playground",
+  product_name: "Search Playground",
+  browser_title: "GOV.UK Search Playground"
+} do %>
+  <%= render "govuk_publishing_components/components/layout_header", {
+    environment: "playground",
+    product_name: "Search Playground 🤹",
+  } %>
+  <div id="wrapper" class="govuk-width-container">
+    <%= yield :before_content %>
+    <main class="govuk-main-wrapper" id="content">
+      <%= yield %>
+    </main>
+  </div>
+<% end %>

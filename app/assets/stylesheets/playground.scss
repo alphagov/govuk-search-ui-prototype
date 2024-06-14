@@ -10,3 +10,12 @@
     @include govuk-typography-weight-bold;
   }
 }
+
+.gem-c-environment-tag--playground {
+  background-color: govuk-colour("turquoise");
+  color: govuk-colour("white");
+}
+
+.gem-c-layout-header--playground .govuk-header__container {
+  border-bottom-color: govuk-colour("turquoise");
+}

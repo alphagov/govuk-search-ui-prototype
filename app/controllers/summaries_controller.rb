@@ -4,6 +4,8 @@ class SummariesController < ApplicationController
   DEFAULT_SUMMARY_RESULT_COUNT = 5
   MAX_SUMMARY_RESULT_COUNT = 10
 
+  layout "playground"
+
   def show; end
 
   helper_method :summary, :query, :type, :prompt_preamble, :summary_result_count,
