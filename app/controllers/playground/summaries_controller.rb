@@ -1,4 +1,4 @@
-class SummariesController < ApplicationController
+class Playground::SummariesController < ApplicationController
   DEFAULT_TYPE = "summary".freeze
   DEFAULT_PROMPT_PREAMBLE = nil
   DEFAULT_SUMMARY_RESULT_COUNT = 5

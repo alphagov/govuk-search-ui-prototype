@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resource :search, only: [:show]
-  resource :summary, only: [:show]
+
+  namespace :playground do
+    resource :summary, only: [:show]
+
+    root to: "summaries#show"
+  end
 
   root "hello#index"
 end
