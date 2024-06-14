@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   namespace :playground do
     resource :summary, only: [:show]
 
-    root to: "summaries#show"
+    root to: redirect("/playground/summary")
   end
 
   root "hello#index"
