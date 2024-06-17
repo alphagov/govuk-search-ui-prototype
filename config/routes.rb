@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :playground do
     resource :summary, only: [:show]
+    resource :related, only: [:show]
 
     root to: redirect("/playground/summary")
   end

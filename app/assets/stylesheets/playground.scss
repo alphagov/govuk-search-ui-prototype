@@ -19,3 +19,15 @@
 .gem-c-layout-header--playground .govuk-header__container {
   border-bottom-color: govuk-colour("turquoise");
 }
+
+.gem-c-header__content.govuk-header__content {
+  width: 100%;
+}
+
+.govuk-header__navigation--end {
+  text-align: left;
+}
+
+.govuk-header__navigation-item--active a:link, .govuk-header__navigation-item--active a:hover, .govuk-header__navigation-item--active a:visited {
+  color: govuk-colour("turquoise");
+}
