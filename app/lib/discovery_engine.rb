@@ -45,7 +45,7 @@ module DiscoveryEngine
     completion_service.complete_query(
       query:,
       data_store:,
-    )
+    ).query_suggestions.map(&:suggestion)
   end
 
 private
