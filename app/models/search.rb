@@ -6,7 +6,7 @@ class Search
   delegate :attribution_token, :corrected_query, :total_size, to: :discovery_engine_response
 
   def results
-    discovery_engine_response.results.map { Result.new(_1) }
+    discovery_engine_response.results.map { Result.new(_1, displayed_text_type: "description") }
   end
 
   def corrected_query?
