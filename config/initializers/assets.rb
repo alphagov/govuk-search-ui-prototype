@@ -10,3 +10,14 @@ Rails.application.config.assets.version = "1.0"
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+Rails.application.config.assets.precompile += %w[
+  accessible-autocomplete/dist/accessible-autocomplete.min.css
+]
+
+Rails.application.config.assets.paths += %W[
+  #{__dir__}/../../node_modules/govuk-frontend/govuk/assets/images
+  #{__dir__}/../../node_modules/govuk-frontend/govuk/assets/fonts
+  #{__dir__}/../../node_modules/govuk-frontend/
+  #{__dir__}/../../node_modules/
+]

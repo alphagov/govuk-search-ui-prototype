@@ -1,5 +1,5 @@
 class Result
-  def initialize(discovery_engine_result, displayed_text_type:)
+  def initialize(discovery_engine_result, displayed_text_type: :null)
     @discovery_engine_result = discovery_engine_result
     @displayed_text_type = displayed_text_type
   end

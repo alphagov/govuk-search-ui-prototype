@@ -14,5 +14,9 @@ Rails.application.routes.draw do
     root to: redirect("/playground/summary")
   end
 
+  namespace :api do
+    resources :autocompletes, only: %i[index]
+  end
+
   root "hello#index"
 end
