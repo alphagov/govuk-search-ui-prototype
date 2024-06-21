@@ -5,7 +5,7 @@ class Api::AutocompletesController < ApplicationController
     render json: DiscoveryEngine.complete(
       complete_params[:q],
       model: complete_params[:model],
-      include_tail: complete_params[:include_tail],
+      include_tail: complete_params[:include_tail] != "false",
     )
   end
 
