@@ -41,9 +41,11 @@ module DiscoveryEngine
     ).response
   end
 
-  def complete(query)
+  def complete(query, model: "document", include_tail: true)
     completion_service.complete_query(
       query:,
+      query_model: model,
+      include_tail_suggestions: include_tail,
       data_store:,
     ).query_suggestions.map(&:suggestion)
   end

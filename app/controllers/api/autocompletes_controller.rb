@@ -1,15 +1,17 @@
 class Api::AutocompletesController < ApplicationController
   def show; end
 
-  helper_method :autocomplete, :query
-
   def index
-    render json: DiscoveryEngine.complete(query)
+    render json: DiscoveryEngine.complete(
+      complete_params[:q],
+      model: complete_params[:model],
+      include_tail: complete_params[:include_tail],
+    )
   end
 
 private
 
-  def query
-    params.permit(:q)[:q]
+  def complete_params
+    params.permit(:q, :model, :include_tail)
   end
 end
