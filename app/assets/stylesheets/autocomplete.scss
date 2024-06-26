@@ -54,6 +54,7 @@
   overflow-y: auto;
   background: #fff;
   list-style: none;
+  position: relative !important;
 }
 
 [data-position="below"] .autocomplete-result-list {
