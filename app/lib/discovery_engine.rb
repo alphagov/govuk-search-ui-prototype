@@ -41,7 +41,7 @@ module DiscoveryEngine
     ).response
   end
 
-  def complete(query, model: "document-completable", include_tail: true)
+  def complete(query, model: "search-history", include_tail: true)
     completion_service.complete_query(
       query:,
       query_model: model,

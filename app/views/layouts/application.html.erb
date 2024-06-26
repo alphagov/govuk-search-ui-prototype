@@ -36,6 +36,7 @@
     } %>
     <%= render "layout_super_navigation_header", {
       logo_link: root_path,
+      blue_background: @blue_background,
     } %>
 
     <div class="gem-c-layout-for-public__blue-bar govuk-width-container"></div>
@@ -47,7 +48,7 @@
       } %>
     </div>
 
-    <div id="wrapper" class="govuk-width-container">
+    <div id="wrapper">
       <%= yield :before_content %>
       <main class="govuk-main-wrapper govuk-!-padding-top-0" id="content">
         <%= yield %>

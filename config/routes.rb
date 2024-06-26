@@ -18,5 +18,5 @@ Rails.application.routes.draw do
     resources :autocompletes, only: %i[index]
   end
 
-  root "hello#index"
+  root "home#index"
 end

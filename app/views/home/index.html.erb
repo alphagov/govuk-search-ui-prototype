@@ -1,0 +1,19 @@
+<%= tag.header class: "homepage-header govuk-!-padding-bottom-2 govuk-!-padding-top-2" do %>
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <%= tag.div class: "govuk-grid-column-two-thirds" do %>
+        <%= tag.h1 do %>
+          <span class="govuk-!-margin-bottom-2 govuk-!-display-block">GOV.UK</span>
+          <span class="govuk-visually-hidden">-</span>
+          <span class="homepage-header__intro">The best place to find<br />government services<br />and information</span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= tag.div class: "govuk-width-container" do %>
+    <%= form_for(:search, method: :get, url: search_path) do %>
+      <%= render "search" %>
+    <% end%>
+  <% end %>
+<% end %>
