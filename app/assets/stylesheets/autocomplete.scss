@@ -1,13 +1,13 @@
 .autocomplete-input {
   width: 100%;
-  padding: 12px 12px 12px 48px;
+  padding: govuk-spacing(2) govuk-spacing(2) govuk-spacing(2) 48px;
   box-sizing: border-box;
   position: relative;
   flex: 1;
   background-color: #eee;
   background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Ik0yMSAyMWwtNC00Ii8+PC9zdmc+');
   background-repeat: no-repeat;
-  background-position: 12px center;
+  background-position: govuk-spacing(2) center;
 }
 
 .autocomplete-input:focus,
@@ -37,17 +37,18 @@
   width: 20px;
   height: 20px;
   position: absolute;
-  right: 12px;
+  right: govuk-spacing(2);
   top: 50%;
   transform: translateY(-50%);
   animation: rotate 1s infinite linear;
 }
 
 .autocomplete-result-container {
-  border: 1px solid $govuk-border-colour;
+  
 }
 
 .autocomplete-result-list {
+  border: 1px solid $govuk-border-colour;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -74,7 +75,7 @@
 /* Single result item */
 .autocomplete-result {
   cursor: default;
-  padding: 12px 12px 12px 48px;
+  padding: govuk-spacing(2) govuk-spacing(2) govuk-spacing(2) 48px;
   background-image: url("data:image/svg+xml,%3Csvg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.902 14.4681C12.3859 14.4681 15.2102 11.6438 15.2102 8.15981C15.2102 4.67586 12.3859 1.85156 8.902 1.85156C5.41805 1.85156 2.59375 4.67586 2.59375 8.15981C2.59375 11.6438 5.41805 14.4681 8.902 14.4681Z' stroke='%23505A5F' stroke-width='2'/%3E%3Cpath d='M13.2324 12.8574L19.5885 19.2134' stroke='%23505A5F' stroke-width='2'/%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
   background-position: govuk-spacing(2) center;
@@ -83,7 +84,7 @@
 
 .autocomplete-result:hover,
 .autocomplete-result[aria-selected="true"] {
-  background-color: $govuk-link-colour;
+  background-color: govuk-colour("light-blue");
   color: govuk-colour("white");
 }
 

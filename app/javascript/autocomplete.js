@@ -22,12 +22,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     var renderResultHtml = function (result, props,inputVal ) {
       var index = result.toLowerCase().indexOf(inputVal.toLowerCase());
-      return `<li ${props}>${result.substring(index, index + inputVal.length)}<span class='highlight'>${result.substring(index + inputVal.length, result.length)}</span></li>`
+      return `<li ${props}>${result.substring(index, index + inputVal.length)}<span class='govuk-!-font-weight-bold'>${result.substring(index + inputVal.length, result.length)}</span></li>`
     }
 
     new accessibleAutocomplete('#autocomplete', {
       search: source,
-      debounceTime: 100,
+      debounceTime: 50,
       renderResult: (value, props) => renderResultHtml(value, props, currentInputValue)
     });
   }
