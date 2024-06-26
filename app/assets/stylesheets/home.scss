@@ -1,0 +1,25 @@
+.homepage-header {
+    background-color: govuk-colour("blue");
+
+    h1 {
+        color: govuk-colour("white");
+
+        .homepage-header__intro {
+            color: #d2e2f1;
+        }
+    }
+
+    .govuk-label {
+        color: govuk-colour("white");
+    }
+
+    .gem-c-search {
+        .gem-c-search__input[type=search] {
+            border:none;
+        }
+        .gem-c-search__submit {
+            background-color: #d2e2f1;
+            color: govuk-colour("blue");
+        }
+    }
+}
