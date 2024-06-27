@@ -34,8 +34,8 @@
   border: 3px solid $govuk-border-colour;
   border-right: 3px solid $govuk-border-colour;
   border-radius: 100%;
-  width: 20px;
-  height: 20px;
+  width: govuk-spacing(4);
+  height: govuk-spacing(4);
   position: absolute;
   right: govuk-spacing(2);
   top: 50%;
@@ -44,11 +44,22 @@
 }
 
 .autocomplete-result-container {
-  
+  display: none;
+  padding: govuk-spacing(2);
+  border: 1px solid $govuk-border-colour;
+
+  .govuk-heading-s {
+    color: govuk-colour("black");
+  }
+}
+
+.homepage-header {
+  .autocomplete-result-container {
+    background-color: govuk-colour("white");
+  }
 }
 
 .autocomplete-result-list {
-  border: 1px solid $govuk-border-colour;
   margin: 0;
   padding: 0;
   box-sizing: border-box;

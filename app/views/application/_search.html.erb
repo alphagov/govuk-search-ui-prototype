@@ -1,17 +1,20 @@
 <%= tag.div id: "autocomplete", class: "govuk-form-group autocomplete", data: { module: "accessible-autocomplete" } do %>
 
-<%= tag.label class: "govuk-label", for: "finder-keyword-search" do %>
-  Search
-<% end %>
+  <%= tag.label class: "govuk-label", for: "finder-keyword-search" do %>
+    Search
+  <% end %>
 
-<%= render "govuk_publishing_components/components/search", {
-  id: "finder-keyword-search",
-  class: "autocomplete-input",
-  type: 'search',
-  value: query,
-} %>
+  <%= render "govuk_publishing_components/components/search", {
+    id: "finder-keyword-search",
+    class: "autocomplete-input",
+    type: 'search',
+    value: query,
+  } %>
 
-<%= tag.div class: "autocomplete-result-container" do %>
-<%= tag.ul class: "autocomplete-result-list" %>
-<% end %>
+  <%= tag.div class: "autocomplete-result-container" do %>
+    <%= tag.span class: "govuk-heading-s govuk-!-padding-0 govuk-!-margin-0" do %>
+    Search for
+    <% end %>
+    <%= tag.ul class: "autocomplete-result-list" %>
+  <% end %>
 <% end %>

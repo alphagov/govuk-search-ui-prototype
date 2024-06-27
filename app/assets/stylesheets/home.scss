@@ -1,12 +1,17 @@
 .homepage-header {
     background-color: govuk-colour("blue");
 
-    h1 {
+    h1,
+    .govuk-heading-xl {
         color: govuk-colour("white");
 
         .homepage-header__intro {
             color: #d2e2f1;
         }
+    }
+
+    .govuk-form-group {
+        padding-bottom: govuk-spacing(6);
     }
 
     .govuk-label {

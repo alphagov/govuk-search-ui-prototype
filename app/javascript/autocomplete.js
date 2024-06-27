@@ -14,10 +14,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     var formInput = document.querySelector('.gem-c-search__input');
 
     var source = async function (query) {
+      if (query && query.length) {
       const response = await fetch(`/api/autocompletes?q=${query}`);
       var completes = await response.json();
       currentInputValue = query
       return completes
+      }
     }
 
     var renderResultHtml = function (result, props,inputVal ) {
@@ -28,7 +30,14 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     new accessibleAutocomplete('#autocomplete', {
       search: source,
       debounceTime: 50,
-      renderResult: (value, props) => renderResultHtml(value, props, currentInputValue)
+      renderResult: (value, props) => renderResultHtml(value, props, currentInputValue),
+      onUpdate: function(results, selectedIndex) {
+        if (results.length) {
+        document.querySelector(".autocomplete-result-container").style.display = "block";
+        } else {
+          document.querySelector(".autocomplete-result-container").style.display = "none";
+        }
+      }
     });
   }
 })(window.GOVUK.Modules)
