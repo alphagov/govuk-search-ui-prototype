@@ -1,9 +1,5 @@
 <%= tag.div id: "autocomplete", class: "govuk-form-group autocomplete", data: { module: "accessible-autocomplete" } do %>
 
-  <%= tag.label class: "govuk-label", for: "finder-keyword-search" do %>
-    Search
-  <% end %>
-
   <%= render "govuk_publishing_components/components/search", {
     id: "finder-keyword-search",
     class: "autocomplete-input",
@@ -12,9 +8,13 @@
   } %>
 
   <%= tag.div class: "autocomplete-result-container" do %>
-    <%= tag.span class: "govuk-heading-s govuk-!-padding-bottom-1 govuk-!-margin-0" do %>
+    <%= tag.span class: "govuk-heading-s govuk-!-padding-bottom-1 govuk-!-padding-top-3 govuk-!-margin-0" do %>
     Search for
     <% end %>
+
     <%= tag.ul class: "autocomplete-result-list" %>
+
+<%= render "suggested_links" %>
   <% end %>
 <% end %>
+
