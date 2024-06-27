@@ -11,14 +11,18 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   Modules.AccessibleAutocomplete = function () {
 
     var currentInputValue = '';
-    var formInput = document.querySelector('.gem-c-search__input');
+    var NUMBER_RESULTS_SHOWN = 3;
 
     var source = async function (query) {
       if (query && query.length) {
-      const response = await fetch(`/api/autocompletes?q=${query}`);
-      var completes = await response.json();
-      currentInputValue = query
-      return completes
+        const response = await fetch(`/api/autocompletes?q=${query}`);
+        var completes = await response.json();
+        currentInputValue = query
+
+        if (completes.length > NUMBER_RESULTS_SHOWN) {
+          completes = completes.slice(0, NUMBER_RESULTS_SHOWN);
+        }
+        return completes
       }
     }
 
