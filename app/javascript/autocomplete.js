@@ -14,7 +14,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     var NUMBER_RESULTS_SHOWN = 3;
 
     var params = new URLSearchParams(window.location.search);
-    var model = params.get('model') || '';
+    var model = params.get('ac-model') || '';
 
     var source = async function (query) {
       if (query && query.length) {
