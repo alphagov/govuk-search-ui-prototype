@@ -13,9 +13,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     var currentInputValue = '';
     var NUMBER_RESULTS_SHOWN = 3;
 
+    var params = new URLSearchParams(window.location.search);
+    var model = params.get('model') || '';
+
     var source = async function (query) {
       if (query && query.length) {
-        const response = await fetch(`/api/autocompletes?q=${query}`);
+        const response = await fetch(`/api/autocompletes?q=${query}&model=${model}`);
         var completes = await response.json();
         currentInputValue = query
 
