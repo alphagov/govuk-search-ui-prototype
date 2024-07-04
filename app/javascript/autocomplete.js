@@ -18,7 +18,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     var source = async function (query) {
       if (query && query.length) {
-        const response = await fetch(`/api/autocompletes?q=${query}&model=${model}`);
+        var response = await fetch(`/api/autocompletes?q=${query}&model=${model}`);
         var completes = await response.json();
         currentInputValue = query
 
@@ -34,15 +34,30 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       return `<li ${props}>${result.substring(index, index + inputVal.length)}<span class='govuk-!-font-weight-bold'>${result.substring(index + inputVal.length, result.length)}</span></li>`
     }
 
+    //add google search box style behaviour to keyboard interaction
+    Array.from(document.querySelectorAll("#finder-keyword-search")).forEach((el) => {
+      el.addEventListener("keyup", function(e) {
+        var activeEl = e.target.getAttribute("aria-activedescendant");
+        if (activeEl) {
+          e.target.value = document.getElementById(activeEl).innerText;
+        }
+
+        if (e.key === "Enter") {
+          e.target.closest("form").submit();
+        }
+      });
+    });
+
     new accessibleAutocomplete('#autocomplete', {
       search: source,
       debounceTime: 50,
       renderResult: (value, props) => renderResultHtml(value, props, currentInputValue),
       onUpdate: function(results, selectedIndex) {
+        var containerEl = document.querySelector(".autocomplete-result-container");
         if (results.length) {
-        document.querySelector(".autocomplete-result-container").style.display = "block";
+          containerEl.style.display = "block";
         } else {
-          document.querySelector(".autocomplete-result-container").style.display = "none";
+          containerEl.style.display = "none";
         }
       }
     });
