@@ -46,6 +46,15 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           e.target.closest("form").submit();
         }
       });
+
+
+    });
+
+    Array.from(document.querySelectorAll(".autocomplete-result-container")).forEach((el) => {
+      el.addEventListener("click", function(e) {
+        document.getElementById("finder-keyword-search").value = e.target.innerText;
+        document.getElementById("search-form").submit();
+      });
     });
 
     new accessibleAutocomplete('#autocomplete', {
