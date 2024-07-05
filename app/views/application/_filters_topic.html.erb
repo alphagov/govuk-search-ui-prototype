@@ -1,0 +1,19 @@
+
+
+
+<%= render "govuk_publishing_components/components/select", {
+  id: "topic-select",
+  name: "level_one_taxon",
+  label: "Topic",
+  data_module: { module: "topics-select" },
+  options: [{ value: "", text: "All topics" }].concat(level_one_topics.map { |v| {value: v['content_id'], text: v['title'], selected: params[:level_one_taxon] == v['content_id'] }})
+} %>
+
+<%= render "govuk_publishing_components/components/select", {
+  id: "topic-select-target",
+  name: "level_two_taxon",
+  label: "Sub topic",
+  disabled: true,
+  options: [{ value: "", text: "All sub-topics" }].concat(level_two_topics.map { |v| {value: v['content_id'], text: v['title'], selected: params[:level_two_taxon] == v['content_id'] }})
+} %>
+

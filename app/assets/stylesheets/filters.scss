@@ -1,0 +1,73 @@
+.filter-panel {
+    background-color:  govuk-colour("light-grey");
+    padding: 15px;
+
+    .js-filter-submit {
+        display: inline-block;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    //horrible hack for prototype, needs to go away
+    .filters-control {
+        legend, .govuk-hint {
+            display: none;
+        }
+    }
+}
+
+.panel-button {
+    display: none;
+}
+
+.js-enabled {
+    .js-filter-submit {
+        display: none;
+    }
+
+    .panel-button {
+        display: block;
+    }
+
+    .filter-header {
+        .govuk-link {
+            text-align: left;
+        }
+    }
+}
+
+.filter-header {
+    display: flex;
+
+    .gem-c-heading {
+        flex-grow: 1;
+    }
+
+    .gem-c-button {
+        // flex-basis: 50%;
+    }
+
+    .govuk-link {
+        flex-basis: 50%;
+        align-self: center;
+        text-align: center;
+    }
+
+    .panel-button {
+        text-align: right !important;
+        background-color: transparent;
+        color: $govuk-link-colour;
+    }
+}
+
+.filters-sorting {
+    border-bottom: 1px solid $govuk-border-colour;
+
+    h2 {
+        font-size: 1.1875rem;
+    }
+
+    .govuk-form-group {
+        margin-bottom: 10px;
+    }
+}

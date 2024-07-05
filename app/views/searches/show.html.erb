@@ -1,33 +1,90 @@
 <div class="govuk-width-container">
   <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    
-    <%= render "govuk_publishing_components/components/breadcrumbs", {
-      collapse_on_mobile: true,
-      breadcrumbs: [
-        {
-          title: "Home",
-          url: root_path
-        },
-      ]
-    } %>
+      <div class="govuk-grid-column-two-thirds govuk-!-padding-top-3">
 
-    <%= render "govuk_publishing_components/components/heading", {
-      text: sanitize("Search GOV.UK <span class='govuk-visually-hidden'>all content</span>"),
-      heading_level: 1,
-      font_size: "xl",
-      margin_bottom: 4,
-    } %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: sanitize("Search GOV.UK <span class='govuk-visually-hidden'>all content</span>"),
+        heading_level: 1,
+        font_size: "xl",
+        margin_bottom: 4
+      } %>
 
+      <%= form_for(:search, method: :get, data: { module: "filters" }) do |f| %>
+        <%= render "search", {
+          label_text: ""
+        } %>
 
+      <div id="panelGroup" class="accordion">
+        <div class="filter-header" data-module="accordion" data-accordion-open="false" data-accordion-persist-state="true">
+          <%= render "govuk_publishing_components/components/heading", {
+            text: pluralize(search.total_size, "result"),
+            id: "js-result-count",
+            font_size: "s",
+            margin_bottom: 2,
+          } %>
+          <div>
+            <button class="accordion-trigger govuk-link panel-button govuk-body-s govuk-!-padding-0 govuk-!-padding-left-3" type="button" aria-expanded="true" aria-controls="filter-panel" id="filters-show-hide">
+                <span class="accordion-title">
+                  Filter and sort
+                  <span class="accordion-icon"></span>
+                </span>
+            </button>
+          </div>
+        </div>
+  
+        <div class="filter-panel" id="filter-panel" role="region" aria-labelledby="filters-show-hide" visible="">
 
-    <%= form_for(:search, method: :get, id: "test") do %>
-      <%= render "search" %>
-    <% end %>
+          <div class="filters-sorting">
+              <%= render "sorting" %>
+          </div>
+
+          <div id="accordionGroup" class="accordion accordion-outline filters-control">
+            <h3 data-module="accordion" data-accordion-open="false">
+              <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
+                <span class="accordion-title govuk-heading-s">
+                  Topic
+                  <span class="accordion-icon"></span>
+                </span>
+              </button>
+            </h3>
+            <div id="sect1" role="region" aria-labelledby="accordion1id" class="accordion-panel">
+              <%= render "filters_topic" %>
+            </div>
+            <h3 data-module="accordion" data-accordion-open="false">
+              <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect2" id="accordion2id">
+                <span class="accordion-title govuk-heading-s">
+                  Type
+                  <span class="accordion-icon"></span>
+                </span>
+              </button>
+            </h3>
+            <div id="sect2" role="region" aria-labelledby="accordion2id" class="accordion-panel">
+              <%= render "filters_type" %>
+            </div>
+            <h3 data-module="accordion" data-accordion-open="false">
+              <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect3" id="accordion3id">
+                <span class="accordion-title govuk-heading-s">
+                  Content updated
+                  <span class="accordion-icon"></span>
+                </span>
+              </button>
+            </h3>
+            <div id="sect3" role="region" aria-labelledby="accordion3id" class="accordion-panel">
+              <%= render "filters_date" %>
+            </div>
+          </div>
+        <% end %>
+
+        <%= render "govuk_publishing_components/components/button", {
+          text: "View results",
+          classes: "js-filter-submit",
+          font_size: "s",
+        } %>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="govuk-grid-row">
+
   <div class="govuk-grid-column-two-thirds">
     <% if search.corrected_query? %>
       <p class="govuk-body">
@@ -35,12 +92,7 @@
       </p>
     <% end %>
 
-    <%= render "govuk_publishing_components/components/heading", {
-      text: pluralize(search.total_size, "result"),
-      id: "js-result-count",
-      font_size: "s",
-      margin_bottom: 2,
-    } %>
+    <%= render "filters_remove" %>
 
     <%= render "govuk_publishing_components/components/document_list", {
       items: search.results.map { |result|
@@ -58,7 +110,7 @@
       remove_underline: true,
     } %>
   </div>
-</div>
+
 </div>
 
 <%= render "popular_content" %>

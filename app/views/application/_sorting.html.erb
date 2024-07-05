@@ -1,0 +1,23 @@
+<%= render "govuk_publishing_components/components/radio", {
+  name: "sort",
+  heading: "Sort by",
+  small: true,
+  margin_bottom: 4,
+  items: [
+        {
+            value: "",
+            text: "Relevance (default)",
+            checked: params[:sort]&.empty? || !params[:sort]
+        },
+        {
+            value: "public_timestamp desc",
+            text: "Newest",
+            checked: params[:sort] == "public_timestamp desc"
+        },
+        {
+            value: "public_timestamp",
+            text: "Oldest",
+            checked: params[:sort] == "public_timestamp"
+        },
+    ]
+  } %>

@@ -1,4 +1,3 @@
-/* eslint-env jquery */
 /* global accessibleAutocomplete */
 import accessibleAutocomplete from '@trevoreyre/autocomplete-js'
 
@@ -58,7 +57,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     new accessibleAutocomplete(`#${$element.id}`, {
       search: source,
-      debounceTime: 50,
+
       renderResult: (value, props) => renderResultHtml(value, props, currentInputValue),
       onUpdate: function(results, selectedIndex) {
         var containerEl = $element.querySelector(".autocomplete-result-container");
