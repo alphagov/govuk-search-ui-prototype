@@ -56,11 +56,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     });
     //end google behaviour
 
-    console.log($element.dataset.prefix)
-
-    var elementId = `#${$element.dataset.prefix}`
-
-    new accessibleAutocomplete(elementId, {
+    new accessibleAutocomplete(`#${$element.id}`, {
       search: source,
       debounceTime: 50,
       renderResult: (value, props) => renderResultHtml(value, props, currentInputValue),
