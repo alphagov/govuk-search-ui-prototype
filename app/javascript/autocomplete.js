@@ -31,7 +31,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     var renderResultHtml = function (result, props,inputVal ) {
       var index = result.toLowerCase().indexOf(inputVal.toLowerCase());
-      return `<li ${props}>${result.substring(index, index + inputVal.length)}<span class='govuk-!-font-weight-bold'>${result.substring(index + inputVal.length, result.length)}</span></li>`
+      if (index === 0) {
+        return `<li ${props}>${result.substring(index, index + inputVal.length)}<span class='govuk-!-font-weight-bold'>${result.substring(index + inputVal.length, result.length)}</span></li>`
+      } else {
+        return `<li ${props}>${result}</li>`
+      }
     }
 
     //add google search box style behaviour to keyboard interaction
