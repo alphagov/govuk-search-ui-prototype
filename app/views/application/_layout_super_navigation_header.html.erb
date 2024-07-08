@@ -344,7 +344,7 @@
         hidden: "",
         class: dropdown_menu_classes,
       }) do %>
-        <div class="govuk-width-container gem-c-layout-super-navigation-header__search-container gem-c-layout-super-navigation-header__search-items">
+        <div class="govuk-width-container govuk-!-padding-bottom-2 gem-c-layout-super-navigation-header__search-container gem-c-layout-super-navigation-header__search-items">
           <h3 class="govuk-visually-hidden">
             <%= navigation_search_subheading %>
           </h3>
@@ -373,6 +373,10 @@
                 role="search"
                 aria-label="Site-wide"
               >
+
+
+                <%= tag.div id: "header-autocomplete", class: "govuk-form-group autocomplete", data: { module: "accessible-autocomplete", prefix: "header-autocomplete" } do %>
+
                 <%= render "govuk_publishing_components/components/search", {
                   inline_label: false,
                   label_size: "m",
@@ -388,6 +392,17 @@
                     track_dimension_index: 29,
                   },
                 } %>
+
+  <%= tag.div class: "autocomplete-result-container" do %>
+
+
+    <%= tag.ul class: "autocomplete-result-list govuk-body" %>
+
+
+  <% end %>
+<% end %>
+
+
               </form>
             </div>
           </div>

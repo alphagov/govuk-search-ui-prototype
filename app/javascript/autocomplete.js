@@ -8,10 +8,10 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 (function (Modules) {
   'use strict'
 
-  Modules.AccessibleAutocomplete = function () {
+  Modules.AccessibleAutocomplete = function ($element) {
 
     var currentInputValue = '';
-    var NUMBER_RESULTS_SHOWN = 3;
+    var NUMBER_RESULTS_SHOWN = 5;
 
     var params = new URLSearchParams(window.location.search);
     var model = params.get('ac-model') || '';
@@ -35,11 +35,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }
 
     //add google search box style behaviour to keyboard interaction
-    Array.from(document.querySelectorAll("#finder-keyword-search")).forEach((el) => {
+    Array.from($element.querySelectorAll("input")).forEach((el) => {
       el.addEventListener("keyup", function(e) {
         var activeEl = e.target.getAttribute("aria-activedescendant");
         if (activeEl) {
-          e.target.value = document.getElementById(activeEl).innerText;
+          e.target.value = $element.getElementById(activeEl).innerText;
         }
 
         if (e.key === "Enter") {
@@ -48,20 +48,24 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       });
     });
 
-    Array.from(document.querySelectorAll(".autocomplete-result-container")).forEach((el) => {
+    Array.from($element.querySelectorAll(".autocomplete-result-container")).forEach((el) => {
       el.addEventListener("click", function(e) {
-        document.getElementById("finder-keyword-search").value = e.target.closest("li").innerText;
-        document.getElementById("search-form").submit();
+        $element.querySelector("input").value = e.target.closest("li").innerText;
+        $element.querySelector(".search-form").submit();
       });
     });
     //end google behaviour
 
-    new accessibleAutocomplete('#autocomplete', {
+    console.log($element.dataset.prefix)
+
+    var elementId = `#${$element.dataset.prefix}`
+
+    new accessibleAutocomplete(elementId, {
       search: source,
       debounceTime: 50,
       renderResult: (value, props) => renderResultHtml(value, props, currentInputValue),
       onUpdate: function(results, selectedIndex) {
-        var containerEl = document.querySelector(".autocomplete-result-container");
+        var containerEl = $element.querySelector(".autocomplete-result-container");
         if (results.length) {
           containerEl.style.display = "block";
         } else {

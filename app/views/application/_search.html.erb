@@ -1,8 +1,11 @@
-<%= tag.div id: "autocomplete", class: "govuk-form-group autocomplete", data: { module: "accessible-autocomplete" } do %>
+<%= tag.div id: "autocomplete", class: "govuk-form-group autocomplete", data: { module: "accessible-autocomplete", prefix: "autocomplete" } do %>
 
   <%= render "govuk_publishing_components/components/search", {
-    id: "finder-keyword-search",
-    class: "autocomplete-input",
+    inline_label: false,
+    label_text: "Search",
+    label_size: "m",
+    label_custom_class: "govuk-label govuk-label--s gem-c-search__label--white govuk-!-margin-bottom-3",
+    size: "large",
     type: 'search',
     value: query,
   } %>
