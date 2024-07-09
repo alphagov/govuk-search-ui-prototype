@@ -39,14 +39,14 @@
       blue_background: @blue_background,
     } %>
 
-    <div class="gem-c-layout-for-public__blue-bar govuk-width-container"></div>
+    <%# <div class="gem-c-layout-for-public__blue-bar govuk-width-container"></div> %>
 
-    <div class="govuk-width-container">
+    <%# <div class="govuk-width-container">
       <%= render "govuk_publishing_components/components/phase_banner", {
         phase: "prototype",
         message: "This is a prototype for improvements to search on GOV.UK."
-      } %>
-    </div>
+      }
+    </div> %>
 
     <div id="wrapper">
       <%= yield :before_content %>
