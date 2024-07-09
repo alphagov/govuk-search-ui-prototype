@@ -44,7 +44,7 @@ module DiscoveryEngine
   def complete(query, model:, include_tail: false)
     completion_service.complete_query(
       query:,
-      query_model: model.presence || "user_event",
+      query_model: model.presence || "user-event",
       include_tail_suggestions: include_tail,
       data_store:,
     ).query_suggestions.map(&:suggestion)
