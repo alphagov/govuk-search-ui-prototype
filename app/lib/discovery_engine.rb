@@ -41,10 +41,10 @@ module DiscoveryEngine
     ).response
   end
 
-  def complete(query, model: "user-event", include_tail: false)
+  def complete(query, model:, include_tail: false)
     completion_service.complete_query(
       query:,
-      query_model: model,
+      query_model: model.presence || "user_event",
       include_tail_suggestions: include_tail,
       data_store:,
     ).query_suggestions.map(&:suggestion)
