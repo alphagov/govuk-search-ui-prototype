@@ -10,6 +10,20 @@
     margin-bottom: 0;
 }
 
-// .govuk-header__logotype-text{
-//     display:none !important;
-// }
+//horrible temporary menu hack
+#super-search-menu-toggle {
+    width: auto;
+    line-height: 1.25;
+}
+
+.navigation-search-item-hack {
+    font-size: 16px;
+    line-height: 1.25;
+    padding-left: 4px;
+    
+}
+
+.gem-c-layout-super-navigation-header__search-toggle-button-link-icon {
+    height: 15px;
+    width: 15px;
+}
