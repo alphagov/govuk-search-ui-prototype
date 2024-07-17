@@ -31,7 +31,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     var renderResultHtml = function (result, props, inputVal) {
       var index = result.toLowerCase().indexOf(inputVal.toLowerCase());
-      return `<li ${props}>${result.substring(0, index + inputVal.length)}<span class='govuk-!-font-weight-bold'>${result.substring(index + inputVal.length, result.length)}<span><div class="border">&nbsp;</div></li>`
+      return `<li ${props}>${result.substring(0, index + inputVal.length)}<span class='govuk-!-font-weight-bold'>${result.substring(index + inputVal.length, result.length)}<span><div class="border"></div></li>`
     }
 
     //add google search box style behaviour to keyboard interaction
@@ -51,7 +51,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     Array.from($element.querySelectorAll(".autocomplete-result-container")).forEach((el) => {
       el.addEventListener("click", function(e) {
         $element.querySelector("input").value = e.target.closest("li").innerText;
-        $element.querySelector(".search-form").submit();
+        $element.closest("form").submit();
       });
     });
     //end google behaviour
