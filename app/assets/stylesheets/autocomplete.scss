@@ -98,18 +98,19 @@
   height: 11px;
   margin-left: -35px;
   bottom: 0;
-  display: block;
+  display: block; 
   width: 100%;
   border-bottom: 1px solid $govuk-border-colour;
 }
 
-.autocomplete-result:last-child {
+.autocomplete-result:last-child .border {
   border-bottom: 0;
 }
 
 .autocomplete-result:hover,
 .autocomplete-result[aria-selected="true"] {
   background-color: govuk-colour("light-grey");
+  cursor: pointer;
 }
 
 .highlight {
