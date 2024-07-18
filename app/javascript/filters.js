@@ -23,14 +23,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             el.closest("form").submit();
         });
     });
-
-    Array.from(document.querySelectorAll('.facet-tag__remove')).forEach(function(el) {
-      el.addEventListener("click", function(e) {
-        const params = new URLSearchParams(window.location.href);
-        console.log(params)
-        params.delete("filter_content_purpose_supergroup", "services");
-      });
-  });
   }
   
 })(window.GOVUK.Modules)
