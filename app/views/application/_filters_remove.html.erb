@@ -33,6 +33,9 @@ types = [
     ]
 %>
 
+<% params[:filter_content_purpose_supergroup]&.each do |grp| %>
+  <%= link_to "Remove #{grp}", url_for(params.merge(filter_content_purpose_supergroup: params[:filter_content_purpose_supergroup] - [grp])) %>
+<% end %>
 
 <% if (params[:filter_content_purpose_supergroup]) %>
 <div class="facet-tags">
@@ -43,7 +46,7 @@ types = [
             <% if (params[:filter_content_purpose_supergroup]&.include?(type[:value])) %>
             <span class="facet-tag">
       <span class="facet-tag__text">Type: <%= type[:label] %></span>
-      
+
                 <button type="button" class="facet-tag__remove" aria-label="Remove filter <%= type[:label] %>" data-module="remove-filter-link" data-facet="content_purpose_supergroup" data-value="services" data-name="">✕</button>
             </span>
             <% end %>
@@ -53,6 +56,6 @@ types = [
         <a href="/search" class="govuk-link">Clear all filters</a>
         </div>
    </div>
-   
+
 </div>
 <% end %>
