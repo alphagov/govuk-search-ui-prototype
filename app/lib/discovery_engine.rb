@@ -3,9 +3,11 @@ module DiscoveryEngine
 
   extend self
 
-  def search(query)
+  def search(query, filter, sort)
     search_service.search(
       query:,
+      order_by: sort,
+      filter:,
       page_size: PAGE_SIZE,
       serving_config:,
     ).response

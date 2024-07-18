@@ -5,13 +5,15 @@
         <%= tag.h1 do %>
           <span class="govuk-!-margin-bottom-2 govuk-!-display-block">GOV.UK</span>
           <span class="govuk-visually-hidden">-</span>
-          <span class="homepage-header__intro homepage-inverse-header__intro--bold">The best place to find<br />government services<br />and information</span>
+          <span class="homepage-header__intro homepage-inverse-header__intro--bold">The best place to find government services and information</span>
         <% end %>
       <% end %>
 
         <%= tag.div class: "govuk-grid-column-two-thirds" do %>
           <%= form_for(:search, method: :get, url: search_path, class: "search-form") do %>
-            <%= render "search" %>
+            <%= render "search", {
+              label_text: "Search"
+            } %>
           <% end%>
         <% end %>
     </div>

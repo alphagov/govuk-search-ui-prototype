@@ -1,0 +1,36 @@
+
+
+    <% after = capture do %>
+<%= render "govuk_publishing_components/components/date_input", {
+name: "to"
+
+} %>
+    <% end %>
+
+
+
+    <% before = capture do %>
+<%= render "govuk_publishing_components/components/date_input", {
+name: "from"
+} %>
+    <% end %>
+
+<%= render "govuk_publishing_components/components/checkboxes", {
+  name: "public_timestamp[]",
+  heading: "Date",
+  small: true,
+  items: [
+        {
+            value: "-before",
+            label: "Updated before",
+                  conditional: before
+      },
+              {
+            value: "-after",
+            label: "Updated after",
+                  conditional: after
+      }
+        
+
+    ]
+  } %>

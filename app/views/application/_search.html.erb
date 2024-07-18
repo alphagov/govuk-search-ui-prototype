@@ -1,8 +1,12 @@
+<%
+  label_text ||= ""
+  %>
+
 <%= tag.div id: "autocomplete", class: "govuk-form-group autocomplete", data: { module: "accessible-autocomplete" } do %>
 
   <%= render "govuk_publishing_components/components/search", {
     inline_label: false,
-    label_text: "Search",
+    label_text: label_text,
     label_size: "m",
     label_custom_class: "govuk-label govuk-label--s gem-c-search__label--white govuk-!-margin-bottom-3",
     size: "large",
@@ -11,11 +15,7 @@
   } %>
 
   <%= tag.div class: "autocomplete-result-container" do %>
-
-
     <%= tag.ul class: "autocomplete-result-list govuk-body" %>
-
-
   <% end %>
-<% end %>
 
+<% end %>

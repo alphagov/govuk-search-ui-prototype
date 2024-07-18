@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :autocompletes, only: %i[index]
+    resources :topics, only: %i[index]
   end
 
   root "home#index"

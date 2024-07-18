@@ -1,4 +1,3 @@
-/* eslint-env jquery */
 /* global accessibleAutocomplete */
 import accessibleAutocomplete from '@trevoreyre/autocomplete-js'
 
@@ -39,7 +38,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       el.addEventListener("keyup", function(e) {
         var activeEl = e.target.getAttribute("aria-activedescendant");
         if (activeEl) {
-          e.target.value = $element.getElementById(activeEl).innerText;
+          e.target.value = document.getElementById(activeEl).innerText;
         }
 
         if (e.key === "Enter") {
@@ -58,7 +57,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     new accessibleAutocomplete(`#${$element.id}`, {
       search: source,
-      debounceTime: 50,
+
       renderResult: (value, props) => renderResultHtml(value, props, currentInputValue),
       onUpdate: function(results, selectedIndex) {
         var containerEl = $element.querySelector(".autocomplete-result-container");
