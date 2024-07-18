@@ -39,7 +39,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       el.addEventListener("keyup", function(e) {
         var activeEl = e.target.getAttribute("aria-activedescendant");
         if (activeEl) {
-          e.target.value = $element.getElementById(activeEl).innerText;
+          e.target.value = document.getElementById(activeEl).innerText;
         }
 
         if (e.key === "Enter") {
