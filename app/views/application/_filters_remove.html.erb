@@ -41,7 +41,7 @@ types = [
             <% params[:filter_content_purpose_supergroup]&.each do |grp| %>
             <span class="facet-tag">
               <span class="facet-tag__text">
-                <%= link_to "Type: #{grp.capitalize.gsub! "_", " "}", url_for(params.merge(filter_content_purpose_supergroup: params[:filter_content_purpose_supergroup] - [grp])), data: { facet: "content_purpose_supergroup" }, aria: { label: "Remove filter #{grp}"} %>
+                <%= link_to "Type: #{grp.capitalize.gsub "_", " "}", url_for(params.merge(filter_content_purpose_supergroup: params[:filter_content_purpose_supergroup] - [grp])), data: { facet: "content_purpose_supergroup" }, aria: { label: "Remove filter #{grp.capitalize.gsub "_", " "}"} %>
               </span>
             </span>
             <% end %>
