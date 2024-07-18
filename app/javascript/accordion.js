@@ -29,7 +29,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           this.buttonEl.setAttribute('aria-expanded', `${open}`);
           this.open = this.buttonEl.getAttribute('aria-expanded') === 'true';
       
-          // add event listeners
           this.buttonEl.addEventListener('click', this.onButtonClick.bind(this));
         }
       

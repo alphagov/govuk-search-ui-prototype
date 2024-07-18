@@ -77,7 +77,6 @@
   }
   
   .accordion-trigger:focus .accordion-title {
-    // border-color: $govuk-focus-colour
     outline: none;
     text-decoration: none;
     outline: 3px solid rgba(0, 0, 0, 0);
@@ -120,7 +119,7 @@
     border-bottom: 1px solid $govuk-border-colour;
   }
   
-  /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
+  // For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/
   .accordion-panel[hidden] {
     display: none;
   }
