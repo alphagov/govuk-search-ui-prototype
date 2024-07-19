@@ -33,3 +33,23 @@
     height: 15px;
     width: 15px;
 }
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    /* display: none;
+    -webkit-appearance: none; */
+    margin:0;
+}
+input[type="date"]::-webkit-datetime-edit {
+    display:none;
+}
+
+input[type="date"] {
+    height: 30px;
+    margin-top: 29px;
+    margin-left: 10px;
+}
+
+.govuk-checkboxes__conditional {
+    display: flex;
+}

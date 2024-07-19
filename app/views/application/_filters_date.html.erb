@@ -5,6 +5,7 @@
 name: "to"
 
 } %>
+<input type="date" id="date1" />
     <% end %>
 
 
@@ -13,7 +14,10 @@ name: "to"
 <%= render "govuk_publishing_components/components/date_input", {
 name: "from"
 } %>
+<input type="date" id="date2" />
+
     <% end %>
+    
 
 <%= render "govuk_publishing_components/components/checkboxes", {
   name: "public_timestamp[]",
