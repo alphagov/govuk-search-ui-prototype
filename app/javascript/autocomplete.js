@@ -15,6 +15,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     var params = new URLSearchParams(window.location.search);
     var model = params.get('ac-model') || '';
 
+    //https://trello.com/c/r1d1StSB/466-turn-off-spell-checking-in-html-attribute
+    $element.querySelector("input").setAttribute('spellcheck', 'false')
+
     var source = async function (query) {
       if (query && query.length) {
         var response = await fetch(`/api/autocompletes?q=${query}&model=${model}`);
