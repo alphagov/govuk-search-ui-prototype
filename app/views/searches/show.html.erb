@@ -13,6 +13,11 @@
         <%= render "search", {
           label_text: ""
         } %>
+        <% if search.corrected_query? %>
+          <p class="govuk-body" style="margin-top: -20px">
+            Did you mean &ldquo;<strong><%= link_to search.corrected_query, search_path(q: search.corrected_query), class: "govuk-link" %></strong>&rdquo;?
+          </p>
+        <% end %>
 
       <div id="panelGroup" class="accordion">
         <div class="filter-header" data-module="accordion" data-accordion-open="false" data-accordion-persist-state="true">
@@ -88,12 +93,6 @@
 
 
   <div class="govuk-grid-column-two-thirds">
-    <% if search.corrected_query? %>
-      <p class="govuk-body">
-        Did you mean &ldquo;<strong><%= link_to search.corrected_query, search_path(q: search.corrected_query), class: "govuk-link" %></strong>&rdquo;?
-      </p>
-    <% end %>
-
     <%= render "filters_remove" %>
     </div>
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
