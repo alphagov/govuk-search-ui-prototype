@@ -1,4 +1,25 @@
 module FiltersHelper
+  SUPERGROUPS = {
+    "services" => "Services",
+    "guidance_and_regulation" => "Guidance and regulation",
+    "news_and_communications" => "News and communications",
+    "research_and_statistics" => "Research and statistics",
+    "policy_and_engagement" => "Policy papers and consultations",
+    "transparency" => "Transparency and freedom of information releases",
+  }
+
+  def supergroup_options(selected_values)
+    selected_values ||= []
+
+    SUPERGROUPS.map do |value, label|
+      {
+        label:,
+        value:,
+        checked: selected_values.include?(value),
+      }
+    end
+  end
+
   def primary_topics_options(selected_id = nil)
     [{ value: "", text: "All topics" }] +
       Taxons

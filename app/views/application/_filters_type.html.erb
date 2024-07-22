@@ -5,38 +5,5 @@
   heading_size: "s",
   small: true,
   hint_text: "Filter by content type",
-  items: [
-    {
-      label: "Services",
-      value: "services",
-      checked: params[:filter_content_purpose_supergroup]&.include?('services')
-    },
-    {
-      label: "Guidance and regulation",
-      value: "guidance_and_regulation",
-      checked: params[:filter_content_purpose_supergroup]&.include?('guidance_and_regulation')
-    },
-    {
-      label: "News and communication",
-      value: "news_and_communications",
-      checked: params[:filter_content_purpose_supergroup]&.include?('news_and_communications')
-    },
-    {
-      label: "Research and statistics",
-      value: "research_and_statistics",
-      checked: params[:filter_content_purpose_supergroup]&.include?('research_and_statistics')
-    },
-    {
-      label: "Policy papers and consultations",
-      value: "policy_and_engagement",
-      checked: params[:filter_content_purpose_supergroup]&.include?('policy_and_engagement')
-    },
-    {
-      label: "Transparency and freedom of information releases",
-      value: "transparency",
-      checked: params[:filter_content_purpose_supergroup]&.include?('transparency')
-    },
-  ]
+  items: supergroup_options(params[:filter_content_purpose_supergroup])
 } %>
-
-   
