@@ -18,11 +18,15 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         });
     });
 
-    Array.from($element.querySelectorAll('select')).forEach(function(el) {
-        el.addEventListener("change", function(e) {
-            el.closest("form").submit();
-        });
+    // Individual handlers for topic changes so we can reset the secondary topic on primary topic
+    // change
+    $element.querySelector("#primary_topic").addEventListener("change", function(el) {
+        $element.querySelector("#secondary_topic").value = "";
+        $element.querySelector("#primary_topic").closest("form").submit();
+    });
+    $element.querySelector("#secondary_topic").addEventListener("change", function(el) {
+        $element.querySelector("#secondary_topic").closest("form").submit();
     });
   }
-  
+
 })(window.GOVUK.Modules)

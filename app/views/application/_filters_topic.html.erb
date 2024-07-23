@@ -1,13 +1,12 @@
 <%= render "govuk_publishing_components/components/select", {
-  id: "topic-select",
+  id: "primary_topic",
   name: "primary_topic",
   label: "Topic",
-  data_module: { module: "topics-select" },
   options: primary_topics_options(permitted_params[:primary_topic])
 } %>
 
 <%= render "govuk_publishing_components/components/select", {
-  id: "topic-select-target",
+  id: "secondary_topic",
   name: "secondary_topic",
   label: "Sub-topic",
   disabled: permitted_params[:primary_topic].blank?,
