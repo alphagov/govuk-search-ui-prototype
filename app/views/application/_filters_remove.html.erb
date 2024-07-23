@@ -1,12 +1,13 @@
 <% if filter_remove_links.any? %>
   <div class="facet-tags">
-      <div class="facet-tags__group">
-          <div class="facet-tags__wrapper">
-              <span class="facet-tags__preposition">Active Filters</span>
-              <%= filter_remove_links.join.html_safe %>
-          </div>
-          <div>
-            <%= link_to "Clear all filters", clear_all_filter_path %>
+    <div class="facet-tags__group">
+      <div class="facet-tags__wrapper">
+        <span class="facet-tags__preposition">Active Filters</span>
+        <%= filter_remove_links.join.html_safe %>
+      </div>
+      <div>
+        <%= link_to "Clear all filters", clear_all_filter_path %>
+      </div>
     </div>
   </div>
 <% end %>
