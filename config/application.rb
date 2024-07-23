@@ -40,5 +40,7 @@ module GovukSearchUiPrototype
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.govuk_taxons = YAML.load_file(Rails.root.join("config/govuk_taxons.yml"))
   end
 end
