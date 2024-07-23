@@ -15,17 +15,37 @@ module FiltersHelper
   }.freeze
 
   def filter_remove_links
-    links = []
+    [].tap { |links|
+      if permitted_params[:primary_topic].present?
+        primary_topic_title = Rails.configuration.govuk_taxons.dig(
+          permitted_params[:primary_topic], "title"
+        )
 
-    links << filter_remove_link("Topic: #{Rails.configuration.govuk_taxons[permitted_params[:primary_topic]]['title']}", url_for(permitted_params.except(:primary_topic, :secondary_topic))) if permitted_params[:primary_topic].present?
+        links << filter_remove_link(
+          "Topic: #{primary_topic_title}",
+          url_for(permitted_params.except(:primary_topic, :secondary_topic)),
+        )
+      end
 
-    links << filter_remove_link("Sub-topic: #{Rails.configuration.govuk_taxons[permitted_params[:primary_topic]]['children'][permitted_params[:secondary_topic]]['title']}", url_for(permitted_params.except(:secondary_topic))) if permitted_params[:secondary_topic].present?
+      if permitted_params[:secondary_topic].present?
+        secondary_topic_title = Rails.configuration.govuk_taxons.dig(
+          permitted_params[:primary_topic], "children", permitted_params[:secondary_topic], "title"
+        )
+        links << filter_remove_link(
+          "Sub-topic: #{secondary_topic_title}",
+          url_for(permitted_params.except(:secondary_topic)),
+        )
+      end
 
-    links += permitted_params[:content_purpose_supergroups]&.map do |value|
-      filter_remove_link("Type: #{SUPERGROUPS[value]}", url_for(permitted_params.merge(content_purpose_supergroups: permitted_params[:content_purpose_supergroups] - [value])))
-    end || []
-
-    links
+      if permitted_params[:content_purpose_supergroups].present?
+        links << permitted_params[:content_purpose_supergroups].map do |value|
+          filter_remove_link(
+            "Type: #{SUPERGROUPS[value]}",
+            url_for(permitted_params.merge(content_purpose_supergroups: permitted_params[:content_purpose_supergroups] - [value])),
+          )
+        end
+      end
+    }.flatten
   end
 
   def filter_remove_link(text, link)
