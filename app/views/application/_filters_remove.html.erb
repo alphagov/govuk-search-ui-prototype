@@ -6,7 +6,7 @@
               <%= filter_remove_links.join.html_safe %>
           </div>
           <div>
-            <%= link_to "Clear all filters", url_for("/search?q=#{filter_params[:q]}"), data: { facet: "content_purpose_supergroup" }, aria: { label: "Clear all filters"} %>
+            <%= link_to "Clear all filters", url_for("/search?q=#{params[:q]}"), class: "govuk-link" %>
         </div>
     </div>
   </div>
