@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
   def show; end
 
-  helper_method :search, :query
+  helper_method :search, :query, :filter_params
 
 private
 
@@ -22,9 +22,9 @@ private
 
   def filter_params
     params.permit(
-      :content_purpose_supergroups,
       :primary_topic,
       :secondary_topic,
+      content_purpose_supergroups: [],
     )
   end
 

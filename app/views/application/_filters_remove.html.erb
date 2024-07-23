@@ -1,18 +1,18 @@
-<% if (params[:content_purpose_supergroups]) %>
+<% if (filter_params[:content_purpose_supergroups]) %>
 <div class="facet-tags">
     <div class="facet-tags__group">
         <div class="facet-tags__wrapper">
             <span class="facet-tags__preposition">Active Filters</span>
-            <% params[:content_purpose_supergroups]&.each do |grp| %>
+            <% filter_params[:content_purpose_supergroups]&.each do |grp| %>
             <span class="facet-tag">
               <span class="facet-tag__text">
-                <%= link_to "Type: #{grp.capitalize.gsub "_", " "}", url_for(params.merge(content_purpose_supergroups: params[:content_purpose_supergroups] - [grp])), data: { facet: "content_purpose_supergroup" }, aria: { label: "Remove filter #{grp.capitalize.gsub "_", " "}"} %>
+                <%= link_to "Type: #{grp.capitalize.gsub "_", " "}", url_for(filter_params.merge(content_purpose_supergroups: filter_params[:content_purpose_supergroups] - [grp])), data: { facet: "content_purpose_supergroup" }, aria: { label: "Remove filter #{grp.capitalize.gsub "_", " "}"} %>
               </span>
             </span>
             <% end %>
         </div>
         <div>
-          <%= link_to "Clear all filters", url_for("/search?q=#{params[:q]}"), data: { facet: "content_purpose_supergroup" }, aria: { label: "Clear all filters"} %>
+          <%= link_to "Clear all filters", url_for("/search?q=#{filter_params[:q]}"), data: { facet: "content_purpose_supergroup" }, aria: { label: "Clear all filters"} %>
       </div>
    </div>
 </div>
