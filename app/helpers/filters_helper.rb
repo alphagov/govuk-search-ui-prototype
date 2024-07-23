@@ -15,9 +15,17 @@ module FiltersHelper
   }.freeze
 
   def filter_remove_links
-    permitted_params[:content_purpose_supergroups]&.map do |value|
+    links = []
+
+    links << filter_remove_link("Topic: #{Rails.configuration.govuk_taxons[permitted_params[:primary_topic]]['title']}", url_for(permitted_params.except(:primary_topic, :secondary_topic))) if permitted_params[:primary_topic].present?
+
+    links << filter_remove_link("Sub-topic: #{Rails.configuration.govuk_taxons[permitted_params[:primary_topic]]['children'][permitted_params[:secondary_topic]]['title']}", url_for(permitted_params.except(:secondary_topic))) if permitted_params[:secondary_topic].present?
+
+    links += permitted_params[:content_purpose_supergroups]&.map do |value|
       filter_remove_link("Type: #{SUPERGROUPS[value]}", url_for(permitted_params.merge(content_purpose_supergroups: permitted_params[:content_purpose_supergroups] - [value])))
     end || []
+
+    links
   end
 
   def filter_remove_link(text, link)
