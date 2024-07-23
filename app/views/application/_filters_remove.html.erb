@@ -3,8 +3,14 @@
     <div class="facet-tags__group">
       <div class="facet-tags__wrapper">
         <span class="facet-tags__preposition">Active Filters</span>
-        <%= filter_remove_links.join.html_safe %>
+        <% filter_remove_links.each do |title, link| %>
+          <%= link_to link, class: "facet-tag" do %>
+            <span class="govuk-visually-hidden">Remove filter </span>
+            <span class="facet-tag__text"><%= title %></span>
+          <% end %>
+        <% end %>
       </div>
+
       <div>
         <%= link_to "Clear all filters", clear_all_filter_path %>
       </div>

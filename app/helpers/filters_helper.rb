@@ -15,44 +15,28 @@ module FiltersHelper
   }.freeze
 
   def filter_remove_links
-    [].tap { |links|
-      if permitted_params[:primary_topic].present?
-        primary_topic_title = Rails.configuration.govuk_taxons.dig(
-          permitted_params[:primary_topic], "title"
-        )
+    links = {}
 
-        links << filter_remove_link(
-          "Topic: #{primary_topic_title}",
-          url_for(permitted_params.except(:primary_topic, :secondary_topic)),
-        )
-      end
-
-      if permitted_params[:secondary_topic].present?
-        secondary_topic_title = Rails.configuration.govuk_taxons.dig(
-          permitted_params[:primary_topic], "children", permitted_params[:secondary_topic], "title"
-        )
-        links << filter_remove_link(
-          "Sub-topic: #{secondary_topic_title}",
-          url_for(permitted_params.except(:secondary_topic)),
-        )
-      end
-
-      if permitted_params[:content_purpose_supergroups].present?
-        links << permitted_params[:content_purpose_supergroups].map do |value|
-          filter_remove_link(
-            "Type: #{SUPERGROUPS[value]}",
-            url_for(permitted_params.merge(content_purpose_supergroups: permitted_params[:content_purpose_supergroups] - [value])),
-          )
-        end
-      end
-    }.flatten
-  end
-
-  def filter_remove_link(text, link)
-    link_to(link, class: "facet-tag") do
-      tag.span("Remove filter", class: "govuk-visually-hidden") +
-        tag.span(text, class: "facet-tag__text")
+    if permitted_params[:primary_topic].present?
+      primary_topic_title = Rails.configuration.govuk_taxons.dig(
+        permitted_params[:primary_topic], "title"
+      )
+      # Removing topic needs to remove secondary topic as well
+      links["Topic: #{primary_topic_title}"] = url_for(permitted_params.except(:primary_topic, :secondary_topic))
     end
+
+    if permitted_params[:secondary_topic].present?
+      secondary_topic_title = Rails.configuration.govuk_taxons.dig(
+        permitted_params[:primary_topic], "children", permitted_params[:secondary_topic], "title"
+      )
+      links["Sub-topic: #{secondary_topic_title}"] = url_for(permitted_params.except(:secondary_topic))
+    end
+
+    permitted_params[:content_purpose_supergroups]&.each do |value|
+      links["Type: #{SUPERGROUPS[value]}"] = url_for(permitted_params.merge(content_purpose_supergroups: permitted_params[:content_purpose_supergroups] - [value]))
+    end
+
+    links
   end
 
   def clear_all_filter_path
