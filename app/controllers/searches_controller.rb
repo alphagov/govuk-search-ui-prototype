@@ -13,14 +13,25 @@ private
   end
 
   def filter_expression
-    Query::Filters.new(filter).filter_expression
+    Query::Filters.new(search_api_filter_params).filter_expression
   end
 
-  def filter
-    params.permit!
+  def search_api_filter_params
+    {
+      filter_content_purpose_supergroup: filter_params[:content_purpose_supergroups],
+      filter_all_part_of_taxonomy_tree: [filter_params[:primary_topic], filter_params[:secondary_topic]].compact_blank,
+    }.compact_blank
+  end
+
+  def filter_params
+    params.permit(
+      :content_purpose_supergroups,
+      :primary_topic,
+      :secondary_topic,
+    )
   end
 
   def query
-    params.permit(:q, :filter_content_purpose_supergroup)[:q]
+    params.permit(:q)[:q]
   end
 end

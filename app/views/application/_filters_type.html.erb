@@ -1,9 +1,9 @@
 <%= render "govuk_publishing_components/components/checkboxes", {
-  name: "filter_content_purpose_supergroup[]",
+  name: "content_purpose_supergroups[]",
   classes: "js-filter-autosubmit",
   heading: "Type",
   heading_size: "s",
   small: true,
   hint_text: "Filter by content type",
-  items: supergroup_options(params[:filter_content_purpose_supergroup])
+  items: supergroup_options(params[:content_purpose_supergroups])
 } %>

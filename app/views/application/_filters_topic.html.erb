@@ -1,15 +1,15 @@
 <%= render "govuk_publishing_components/components/select", {
   id: "topic-select",
-  name: "level_one_taxon",
+  name: "primary_topic",
   label: "Topic",
   data_module: { module: "topics-select" },
-  options: primary_topics_options(params[:level_one_taxon])
+  options: primary_topics_options(params[:primary_topic])
 } %>
 
 <%= render "govuk_publishing_components/components/select", {
   id: "topic-select-target",
-  name: "level_two_taxon",
+  name: "secondary_topic",
   label: "Sub-topic",
-  disabled: params[:level_one_taxon].blank?,
-  options: secondary_topics_options(params[:level_one_taxon], params[:level_two_taxon])
+  disabled: params[:primary_topic].blank?,
+  options: secondary_topics_options(params[:primary_topic], params[:secondary_topic])
 } %>
