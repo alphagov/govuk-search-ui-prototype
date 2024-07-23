@@ -7,17 +7,17 @@
         {
             value: "",
             text: "Relevance (default)",
-            checked: params[:sort]&.empty? || !params[:sort]
+            checked: permitted_params[:sort]&.empty? || !permitted_params[:sort]
         },
         {
             value: "public_timestamp desc",
             text: "Newest",
-            checked: params[:sort] == "public_timestamp desc"
+            checked: permitted_params[:sort] == "public_timestamp desc"
         },
         {
             value: "public_timestamp",
             text: "Oldest",
-            checked: params[:sort] == "public_timestamp"
+            checked: permitted_params[:sort] == "public_timestamp"
         },
     ]
   } %>
