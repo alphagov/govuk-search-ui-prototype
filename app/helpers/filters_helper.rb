@@ -8,6 +8,19 @@ module FiltersHelper
     "transparency" => "Transparency and freedom of information releases",
   }
 
+  def filter_remove_links
+    filter_params[:content_purpose_supergroups]&.map do |value|
+      filter_remove_link("Type: #{SUPERGROUPS[value]}", url_for(filter_params.merge(content_purpose_supergroups: filter_params[:content_purpose_supergroups] - [value])))
+    end || []
+  end
+
+  def filter_remove_link(text, link)
+    link_to(link, class: "facet-tag") do
+      tag.span("Remove filter", class: "govuk-visually-hidden") +
+        tag.span(text, class: "facet-tag__text")
+    end
+  end
+
   def supergroup_options(selected_values)
     selected_values ||= []
 
