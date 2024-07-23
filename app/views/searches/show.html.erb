@@ -46,7 +46,7 @@
           </div>
 
           <div id="accordionGroup" class="accordion accordion-outline filters-control">
-            <h3 data-module="accordion" data-accordion-open="false">
+            <h3 data-module="accordion" data-accordion-open="<%= filter_params[:primary_topic].present? %>">
               <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
                 <span class="accordion-title govuk-heading-s">
                   Topic
@@ -57,7 +57,7 @@
             <div id="sect1" role="region" aria-labelledby="accordion1id" class="accordion-panel">
               <%= render "filters_topic" %>
             </div>
-            <h3 data-module="accordion" data-accordion-open="<%= params.has_key?(:content_purpose_supergroups) %>">
+            <h3 data-module="accordion" data-accordion-open="<%= filter_params[:content_purpose_supergroups].present? %>">
               <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect2" id="accordion2id">
                 <span class="accordion-title govuk-heading-s">
                   Type
