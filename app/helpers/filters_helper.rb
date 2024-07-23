@@ -1,4 +1,10 @@
 module FiltersHelper
+  FILTERABLE_PARAMS = %w[
+    content_purpose_supergroups
+    primary_topic
+    secondary_topic
+  ].freeze
+
   SUPERGROUPS = {
     "services" => "Services",
     "guidance_and_regulation" => "Guidance and regulation",
@@ -6,11 +12,11 @@ module FiltersHelper
     "research_and_statistics" => "Research and statistics",
     "policy_and_engagement" => "Policy papers and consultations",
     "transparency" => "Transparency and freedom of information releases",
-  }
+  }.freeze
 
   def filter_remove_links
-    filter_params[:content_purpose_supergroups]&.map do |value|
-      filter_remove_link("Type: #{SUPERGROUPS[value]}", url_for(filter_params.merge(content_purpose_supergroups: filter_params[:content_purpose_supergroups] - [value])))
+    permitted_params[:content_purpose_supergroups]&.map do |value|
+      filter_remove_link("Type: #{SUPERGROUPS[value]}", url_for(permitted_params.merge(content_purpose_supergroups: permitted_params[:content_purpose_supergroups] - [value])))
     end || []
   end
 
@@ -19,6 +25,10 @@ module FiltersHelper
       tag.span("Remove filter", class: "govuk-visually-hidden") +
         tag.span(text, class: "facet-tag__text")
     end
+  end
+
+  def clear_all_filter_path
+    url_for(permitted_params.except(*FILTERABLE_PARAMS))
   end
 
   def supergroup_options(selected_values)

@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
   def show; end
 
-  helper_method :search, :query, :filter_params
+  helper_method :search, :query, :permitted_params
 
 private
 
@@ -15,20 +15,16 @@ private
 
   def search_api_filter_params
     {
-      filter_content_purpose_supergroup: filter_params[:content_purpose_supergroups],
-      filter_all_part_of_taxonomy_tree: [filter_params[:primary_topic], filter_params[:secondary_topic]].compact_blank,
+      filter_content_purpose_supergroup: permitted_params[:content_purpose_supergroups],
+      filter_all_part_of_taxonomy_tree: [permitted_params[:primary_topic], permitted_params[:secondary_topic]].compact_blank,
     }.compact_blank
   end
 
-  def filter_params
-    params.permit(
-      :primary_topic,
-      :secondary_topic,
-      content_purpose_supergroups: [],
-    )
+  def query
+    permitted_params[:q]
   end
 
-  def query
-    params.permit(:q)[:q]
+  def permitted_params
+    params.permit(:q, :sort, :primary_topic, :secondary_topic, content_purpose_supergroups: [])
   end
 end

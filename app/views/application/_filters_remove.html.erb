@@ -6,8 +6,7 @@
               <%= filter_remove_links.join.html_safe %>
           </div>
           <div>
-            <%= link_to "Clear all filters", url_for("/search?q=#{params[:q]}"), class: "govuk-link" %>
-        </div>
+            <%= link_to "Clear all filters", clear_all_filter_path %>
     </div>
   </div>
 <% end %>
