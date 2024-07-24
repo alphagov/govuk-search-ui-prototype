@@ -26,6 +26,7 @@
     display: block;
     font-weight: normal;
     margin: 0;
+    margin-bottom: 10px;
     padding: 1em 1.5em;
     position: relative;
     text-align: left;
@@ -95,13 +96,13 @@ button {
     pointer-events: none;
     position: absolute;
     left: 0;
-    top: 65%;
+    top: 60%;
     transform: translateY(-60%) rotate(45deg);
     width: 0.5rem;
 }
 
 .accordion-trigger[aria-expanded="false"] .accordion-icon {
-    top: 50%;
+    top: 45%;
 }
 
 .accordion-trigger:focus .accordion-icon,

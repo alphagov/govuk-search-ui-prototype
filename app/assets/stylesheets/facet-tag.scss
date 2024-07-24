@@ -7,6 +7,7 @@
 
   .facet-tags {
     padding-bottom: govuk-spacing(1);
+    @include govuk-font(19, $weight: regular);
   }
 
   .facet-tags__group {
@@ -28,7 +29,7 @@
       display: block;
     }
 
-    font-weight: bold;
+
 
     &::first-letter {
       text-transform: uppercase;
@@ -38,12 +39,15 @@
   .facet-tags__preposition {
     @include govuk-media-query($until: tablet) {
       display: inline-block;
+      vertical-align: middle;
     }
 
-    display: inline-block;
-    padding: 0 5px 0 2px;
-    vertical-align: middle;
-    text-transform: lowercase;
+    display: block;
+    @include govuk-font(19, $weight: regular);
+    margin-bottom: 0;
+    margin-top: 10px;
+
+
   }
 
   .facet-tag {
@@ -65,7 +69,7 @@
     background-color: govuk-colour("light-grey");
     background-image: url("data:image/svg+xml,%0A%3Csvg width='12' height='11' viewBox='0 0 12 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.0225 10.5707L10.0934 10.6417L10.1642 10.5705L11.0709 9.65789L11.1412 9.58715L11.0707 9.51667L7.05143 5.5L11.0707 1.48333L11.1415 1.4126L11.0707 1.34186L10.1639 0.435694L10.0932 0.365051L10.0226 0.435693L6.00327 4.4524L1.98393 0.429322L1.91324 0.358569L1.8425 0.429267L0.929312 1.34186L0.858478 1.41265L0.929368 1.48339L4.95489 5.5L0.929368 9.51661L0.858478 9.58735L0.929312 9.65814L1.8425 10.5707L1.91324 10.6414L1.98393 10.5707L6.00322 6.54766L10.0225 10.5707Z' fill='%230B0C0C' stroke='black' stroke-width='0.2'/%3E%3C/svg%3E%0A");
     background-repeat: no-repeat;
-    background-position: 8px 12px;
+    background-position: 14px 16px;
     padding: govuk-em(8, 16px) govuk-em(8, 16px) govuk-em(8, 16px) govuk-em(24, 16px);
   }
 
@@ -84,6 +88,10 @@
     .js-enabled & {
       margin-left: govuk-em(5, 16px);
     }
+  }
+
+  .facet-tags__remove-all a {
+    color: $govuk-link-colour;
   }
 
   .facet-tag__remove {

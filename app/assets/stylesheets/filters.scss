@@ -41,6 +41,7 @@
 
     .gem-c-heading {
         flex-grow: 1;
+        font-weight: normal;
     }
 
     .gem-c-button {
@@ -48,7 +49,7 @@
     }
 
     .govuk-link {
-        flex-basis: 50%;
+        flex-basis: content;
         align-self: center;
         text-align: center;
     }
