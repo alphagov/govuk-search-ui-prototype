@@ -38,48 +38,30 @@
         </div>
 
         <div class="filter-panel" id="filter-panel" role="region" aria-labelledby="filters-show-hide" visible="">
-
           <div class="filters-sorting">
-            <div>
               <%= render "sorting" %>
-              </div>
           </div>
 
-          <div id="accordionGroup" class="accordion accordion-outline filters-control">
-            <h3 data-module="accordion" data-accordion-open="<%= permitted_params[:primary_topic].present? %>">
-              <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
-                <span class="accordion-title govuk-heading-s">
-                  Topic
-                  <span class="accordion-icon"></span>
-                </span>
-              </button>
-            </h3>
-            <div id="sect1" role="region" aria-labelledby="accordion1id" class="accordion-panel">
-              <%= render "filters_topic" %>
-            </div>
-            <h3 data-module="accordion" data-accordion-open="<%= permitted_params[:content_purpose_supergroups].present? %>">
-              <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect2" id="accordion2id">
-                <span class="accordion-title govuk-heading-s">
-                  Type
-                  <span class="accordion-icon"></span>
-                </span>
-              </button>
-            </h3>
-            <div id="sect2" role="region" aria-labelledby="accordion2id" class="accordion-panel" hidden="">
-              <%= render "filters_type" %>
-            </div>
-            <h3 data-module="accordion" data-accordion-open="false">
-              <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect3" id="accordion3id">
-                <span class="accordion-title govuk-heading-s">
-                  Content updated
-                  <span class="accordion-icon"></span>
-                </span>
-              </button>
-            </h3>
-            <div id="sect3" role="region" aria-labelledby="accordion3id" class="accordion-panel">
-              <%= render "filters_date" %>
-            </div>
-          </div>
+          <%= render "govuk_publishing_components/components/details", {
+              title: "Topic",
+              open: permitted_params[:primary_topic].present?
+          } do %>
+            <%= render "filters_topic" %>
+          <% end %>
+
+          <%= render "govuk_publishing_components/components/details", {
+              title: "Type",
+              open: permitted_params[:content_purpose_supergroups].present?
+          } do %>
+            <%= render "filters_type" %>
+          <% end %>
+
+          <%= render "govuk_publishing_components/components/details", {
+              title: "Content updated",
+              open: permitted_params[:primary_topic].present?
+          } do %>
+            <%= render "filters_date" %>
+          <% end %>
         <% end %>
 
         <%= render "govuk_publishing_components/components/button", {
@@ -90,11 +72,10 @@
     </div>
   </div>
 
-
   <div class="govuk-grid-column-two-thirds">
     <%= render "filters_remove" %>
-    </div>
-    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
+  </div>
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
 
     <%= render "govuk_publishing_components/components/document_list", {
       items: search.results.map { |result|
@@ -112,5 +93,4 @@
       remove_underline: true,
     } %>
   </div>
-
 </div>

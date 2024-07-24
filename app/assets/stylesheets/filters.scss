@@ -9,7 +9,7 @@
     }
 
     //horrible hack for prototype, needs to go away
-    .filters-control {
+    details {
         legend, .govuk-hint {
             display: none;
         }
@@ -31,7 +31,7 @@
 
     .filter-header {
         .govuk-link {
-            text-align: left;
+            border: none;
         }
     }
 }
@@ -62,9 +62,10 @@
 
 .filters-sorting {
     border-bottom: 1px solid $govuk-border-colour;
+    margin-bottom: 10px;
 
     h2 {
-        font-size: 1.1875rem;
+        @include govuk-font(24, $weight: bold);
     }
 
     .govuk-form-group {
@@ -74,7 +75,48 @@
 
 // Fix checkboxes and radios not having white inner background when on non-white background
 .govuk-checkboxes__label, .govuk-radios__label {
-&::before {
-    background-color: govuk-colour('white');
+    &::before {
+        background-color: govuk-colour('white');
+    }
 }
+
+//govuk details component overides
+.govuk-details>.govuk-details__summary::before {
+    // background-image: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13 1.25L6.5 7.75L0 1.25' stroke='%230B0C0C' stroke-width='2'/%3E%3C/svg%3E");
+    color: $govuk-text-colour;
+}
+
+.govuk-details>.govuk-details__summary::after {
+    // background-image: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13 1.25L6.5 7.75L0 1.25' stroke='%230B0C0C' stroke-width='2'/%3E%3C/svg%3E");
+    color: $govuk-text-colour;
+}
+
+.govuk-details[open]>.govuk-details__summary::before {
+    // transform: translateY(-50%) rotate(-135deg);
+}
+
+.govuk-details {
+    border-bottom: 1px solid $govuk-border-colour;
+    padding: 10px 0;
+
+    summary {
+        @include govuk-font(24, $weight: bold);
+        margin-bottom: 10px;
+        color: $govuk-text-colour;
+        text-decoration: none;
+        font-weight: bold;
+
+        .govuk-details__summary-text {
+            text-decoration: none;
+        }
+    }
+
+    .govuk-details__text,
+    .govuk-checkboxes__conditional {
+        border-left: none;
+        padding-left: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin: 0;
+    }
 }

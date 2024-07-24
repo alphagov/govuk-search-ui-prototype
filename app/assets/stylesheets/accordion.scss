@@ -1,26 +1,26 @@
 .accordion {
     margin: 0;
     padding: 0;
-  }
-  
-  .accordion h3 {
+}
+
+.accordion h3 {
     margin: 0;
     padding: 0;
-  }
-  
-  .accordion:focus-within {
+}
+
+.accordion:focus-within {
     // border-color: $govuk-focus-colour;
-  }
-  
-  .accordion:focus-within h3 {
+}
+
+.accordion:focus-within h3 {
     // background-color: hsl(0deg 0% 97%);
-  }
-  
-  .accordion > * + * {
+}
+
+.accordion>*+* {
     // border-top: 1px solid hsl(0deg 0% 52%);
-  }
-  
-  .accordion-trigger {
+}
+
+.accordion-trigger {
     background: none;
     color: hsl(0deg 0% 13%);
     display: block;
@@ -31,52 +31,52 @@
     text-align: left;
     width: 100%;
     outline: none;
-  }
-
-  .accordion-outline {
-
-  .accordion-trigger {
-    border-bottom: 1px solid $govuk-border-colour;
-  }
 }
-  
-  .accordion-trigger:focus,
-  .accordion-trigger:hover {
+
+.accordion-outline {
+
+    .accordion-trigger {
+        border-bottom: 1px solid $govuk-border-colour;
+    }
+}
+
+.accordion-trigger:focus,
+.accordion-trigger:hover {
     // background: hsl(216deg 94% 94%);
-  }
-  
-  .accordion-trigger:focus {
+}
+
+.accordion-trigger:focus {
     // outline: 4px solid transparent;
-  }
-  
-  .accordion > *:first-child .accordion-trigger,
-  .accordion > *:first-child {
+}
+
+.accordion>*:first-child .accordion-trigger,
+.accordion>*:first-child {
     // border-radius: 5px 5px 0 0;
-  }
-  
-  .accordion > *:last-child .accordion-trigger,
-  .accordion > *:last-child {
+}
+
+.accordion>*:last-child .accordion-trigger,
+.accordion>*:last-child {
     // border-radius: 0 0 5px 5px;
-  }
-  
-  button {
+}
+
+button {
     border-style: none;
-  }
-  
-  .accordion button::-moz-focus-inner {
+}
+
+.accordion button::-moz-focus-inner {
     border: 0;
-  }
-  
-  .accordion-title {
+}
+
+.accordion-title {
     display: block;
     pointer-events: none;
     border: transparent 2px solid;
     padding-left: 0;
     outline: none;
     margin: 0;
-  }
-  
-  .accordion-trigger:focus .accordion-title {
+}
+
+.accordion-trigger:focus .accordion-title {
     outline: none;
     text-decoration: none;
     outline: 3px solid rgba(0, 0, 0, 0);
@@ -86,53 +86,57 @@
     text-decoration: none;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
-  }
-  
-  .accordion-icon {
+}
+
+.accordion-icon {
     border: solid currentcolor;
     border-width: 0 2px 2px 0;
     height: 0.5rem;
     pointer-events: none;
     position: absolute;
     left: 0;
-    top: 50%;
+    top: 65%;
     transform: translateY(-60%) rotate(45deg);
     width: 0.5rem;
-  }
-  
-  .accordion-trigger:focus .accordion-icon,
-  .accordion-trigger:hover .accordion-icon {
-    // border-color: hsl(216deg 94% 43%);
-  }
+}
 
-  .accordion-trigger[aria-expanded="true"] {
+.accordion-trigger[aria-expanded="false"] .accordion-icon {
+    top: 50%;
+}
+
+.accordion-trigger:focus .accordion-icon,
+.accordion-trigger:hover .accordion-icon {
+    // border-color: hsl(216deg 94% 43%);
+}
+
+.accordion-trigger[aria-expanded="true"] {
     border-bottom: 0;
-  }
-  
-  .accordion-trigger[aria-expanded="true"] .accordion-icon {
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-icon {
     transform: translateY(-50%) rotate(-135deg);
-  }
-  
-  .accordion-panel {
+}
+
+.accordion-panel {
     margin: 0;
     padding: 0;
     border-bottom: 1px solid $govuk-border-colour;
-  }
-  
-  // For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/
-  .accordion-panel[hidden] {
+}
+
+// For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/
+.accordion-panel[hidden] {
     display: none;
-  }
-  
-  fieldset {
+}
+
+fieldset {
     border: 0;
     margin: 0;
     padding: 0;
-  }
-  
-  input {
+}
+
+input {
     border: 1px solid hsl(0deg 0% 42%);
     display: block;
     font-size: inherit;
     padding: 0.3em 0.5em;
-  }
+}
