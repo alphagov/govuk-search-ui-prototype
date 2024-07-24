@@ -12,11 +12,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     });
 
     //cant seem to be able to add js-filter-autosubmit class to radio component
-    Array.from($element.querySelectorAll('input[type=radio]')).forEach(function(el) {
-        el.addEventListener("change", function(e) {
-            el.closest("form").submit();
-        });
-    });
+    // Array.from($element.querySelectorAll('input[type=radio]')).forEach(function(el) {
+    //     el.addEventListener("change", function(e) {
+    //         el.closest("form").submit();
+    //     });
+    // });
 
     // Individual handlers for topic changes so we can reset the secondary topic on primary topic
     // change

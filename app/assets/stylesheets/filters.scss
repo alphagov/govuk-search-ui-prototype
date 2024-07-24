@@ -2,7 +2,7 @@
     background-color:  govuk-colour("light-grey");
     padding: 15px;
 
-    .js-filter-submit {
+    .govuk-button {
         display: inline-block;
         width: 100%;
         margin: 10px 0;
@@ -21,9 +21,9 @@
 }
 
 .js-enabled {
-    .js-filter-submit {
-        display: none;
-    }
+    // .js-filter-submit {
+    //     display: none;
+    // }
 
     .panel-button {
         display: block;
