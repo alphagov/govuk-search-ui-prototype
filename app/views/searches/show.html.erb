@@ -65,15 +65,17 @@
         <% end %>
 
   <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half">
+      <div class="<% if filter_remove_links.any? %>govuk-grid-column-one-half<% else %>govuk-grid-column-full<% end %>">
         <%= render "govuk_publishing_components/components/button", {
           text: "View results",
           font_size: "s",
         } %>
         </div>
+        <% if filter_remove_links.any? %>
         <div class="govuk-grid-column-one-half govuk-!-text-align-centre">
           <%= link_to "Clear all filters", clear_all_filter_path, class: "govuk-link clear-filters" %>
         </div>
+         <% end %>
         </div>
       </div>
     </div>
