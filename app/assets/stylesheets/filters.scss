@@ -8,10 +8,22 @@
         margin: 10px 0;
     }
 
+    select {
+        width: 100%;
+    }
+
     //horrible hack for prototype, needs to go away
     details {
         legend, .govuk-hint {
             display: none;
+        }
+    }
+
+    .clear-filters {
+        line-height: 3.2rem;
+
+        @include govuk-media-query($until: tablet) {
+            line-height: normal;
         }
     }
 }
@@ -21,10 +33,6 @@
 }
 
 .js-enabled {
-    // .js-filter-submit {
-    //     display: none;
-    // }
-
     .panel-button {
         display: block;
     }
@@ -90,12 +98,12 @@
 	height: 10px;
 	left: 0;
 	position: relative;
-	top: -5px;
+	top: 0;
 	vertical-align: middle;
 	width: 10px;
     border-color: $govuk-text-colour;
     clip-path: unset;
-	transform: rotate(135deg);
+	transform: rotate(-45deg);
 }
 
 .govuk-details>.govuk-details__summary::before {
@@ -106,8 +114,8 @@
 	height: 10px;
 	left: 0;
 	position: relative;
-	top: 0;
-	transform: rotate(-45deg);
+	top: -5px;
+	transform: rotate(135deg);
 	vertical-align: middle;
 	width: 10px;
     border-color: $govuk-text-colour;
@@ -122,12 +130,10 @@
         @include govuk-font(24, $weight: bold);
         margin-bottom: 10px;
         color: $govuk-text-colour;
-        text-decoration: none;
         font-weight: bold;
         padding-left: 10px;
 
         .govuk-details__summary-text {
-            text-decoration: none;
             padding-left: 10px;
         }
     }

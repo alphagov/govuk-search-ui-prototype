@@ -1,40 +1,38 @@
+<% after = capture do %>
+  <%= render "govuk_publishing_components/components/date_input", {
+    name: "to"
+  } %>
+  <div class="govuk-form-group govuk-!-margin-left-4">
+    <label class="govuk-label" for="date1">Select date</label>
+    <input type="date" id="date1" />
+  </div>
+<% end %>
 
-
-    <% after = capture do %>
-<%= render "govuk_publishing_components/components/date_input", {
-name: "to"
-
-} %>
-<input type="date" id="date1" />
-    <% end %>
-
-
-
-    <% before = capture do %>
-<%= render "govuk_publishing_components/components/date_input", {
-name: "from"
-} %>
-<input type="date" id="date2" />
-
-    <% end %>
+<% before = capture do %>
+  <%= render "govuk_publishing_components/components/date_input", {
+    name: "from"
+  } %>
+  <div class="govuk-form-group govuk-!-margin-left-4">
+    <label class="govuk-label" for="date2">Select date</label>
+    <input type="date" id="date2" />
+  </div>
+<% end %>
     
-
 <%= render "govuk_publishing_components/components/checkboxes", {
   name: "public_timestamp[]",
   heading: "Date",
   small: true,
   items: [
-        {
-            value: "-before",
-            label: "Updated before",
-                  conditional: before
-      },
-              {
+      {
             value: "-after",
             label: "Updated after",
-                  conditional: after
+            conditional: after
+      },
+      {
+            value: "-before",
+            label: "Updated before",
+            conditional: before
       }
-        
-
     ]
   } %>
+  
