@@ -86,7 +86,7 @@
             description: result.description,
           },
           metadata: {
-            public_updated_at: result.date,
+            "Updated" => ("Updated: #{result.date.strftime("%-d %B %Y")}" if result.date.present? && result.content_purpose_supergroup != "services"),
           }
         }
       },

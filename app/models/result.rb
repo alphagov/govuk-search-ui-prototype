@@ -4,7 +4,8 @@ class Result
     @displayed_text_type = displayed_text_type
   end
 
-  delegate :title, :link, :description, :public_timestamp_datetime, to: :struct_data
+  delegate :title, :link, :description, :public_timestamp_datetime, :content_purpose_supergroup,
+           to: :struct_data
 
   def url
     link.start_with?("http") ? link : "https://www.gov.uk#{link}"
