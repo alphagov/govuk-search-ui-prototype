@@ -20,7 +20,7 @@
         <% end %>
 
       <div id="panelGroup" class="accordion">
-        <div class="filter-header" data-module="accordion" data-accordion-open="false" data-accordion-persist-state="true">
+        <div class="filter-header" data-module="accordion">
           <%= render "govuk_publishing_components/components/heading", {
             text: pluralize(search.total_size, "result"),
             id: "js-result-count",
@@ -28,7 +28,7 @@
             margin_bottom: 2,
           } %>
 
-            <button class="accordion-trigger govuk-link panel-button govuk-body-m govuk-!-padding-0 govuk-!-padding-left-3" type="button" aria-expanded="true" aria-controls="filter-panel" id="filters-show-hide">
+            <button class="accordion-trigger govuk-link panel-button govuk-body-m govuk-!-padding-0 govuk-!-padding-left-3" type="button" aria-expanded="<% if filter_remove_links.any? %>true<% else %>false<% end %>" aria-controls="filter-panel" id="filters-show-hide">
                 <span class="accordion-title">
                   Filter and sort
                   <span class="accordion-icon"></span>
@@ -37,7 +37,7 @@
 
         </div>
 
-        <div class="filter-panel" id="filter-panel" role="region" aria-labelledby="filters-show-hide" visible="">
+        <div class="filter-panel" id="filter-panel" role="region" aria-labelledby="filters-show-hide" <% if filter_remove_links.none? %>hidden=""<% end %>>
           <div class="filters-sorting">
               <%= render "sorting" %>
           </div>
