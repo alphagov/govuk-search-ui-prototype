@@ -4,7 +4,7 @@
 
     .govuk-button {
         display: inline-block;
-        width: 100%;
+  
     }
 
     select {
@@ -131,7 +131,7 @@
         @include govuk-font(19, $weight: bold);
         margin-bottom: 10px;
         color: $govuk-text-colour;
-        font-weight: bold;
+        font-weight: bold; 
         padding-left: 0;
 
         .govuk-details__summary-text {
@@ -143,8 +143,22 @@
     .govuk-checkboxes__conditional {
         border-left: none;
         padding-left: 0;
-        padding-top: 15px;
+        padding-top: 5px;
         padding-bottom: 15px;
         margin: 0;
+    }
+}
+
+
+.govuk-button-group {
+    .govuk-button,
+    .govuk-link {
+        flex-basis: 50%;
+        margin: 0;
+        text-align: center;
+
+        @include govuk-media-query($until: tablet) {
+            margin: inherit;
+        }
     }
 }

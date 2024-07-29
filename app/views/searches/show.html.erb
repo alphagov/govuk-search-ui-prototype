@@ -64,18 +64,15 @@
           <% end %>
         <% end %>
 
-  <div class="govuk-grid-row govuk-button-group govuk-!-margin-bottom-0">
-      <div class="<% if filter_remove_links.any? %>govuk-grid-column-one-half<% else %>govuk-grid-column-full<% end %>">
-        <%= render "govuk_publishing_components/components/button", {
-          text: "View results",
-          font_size: "s",
-        } %>
-        </div>
-        <% if filter_remove_links.any? %>
-        <div class="govuk-grid-column-one-half govuk-!-text-align-centre">
-          <%= link_to "Clear all filters", clear_all_filter_path, class: "govuk-link clear-filters govuk-!-font-size-19" %>
-        </div>
-         <% end %>
+        <div class="govuk-button-group govuk-!-margin-bottom-0 govuk-!-margin-top-3">
+          <%= render "govuk_publishing_components/components/button", {
+            text: "View results",
+            font_size: "s",
+          } %>
+  
+          <% if filter_remove_links.any? %>
+            <%= link_to "Clear all filters", clear_all_filter_path, class: "govuk-link clear-filters govuk-!-font-size-19" %>
+          <% end %>
         </div>
       </div>
     </div>
