@@ -37,7 +37,7 @@
 
         </div>
 
-        <div class="filter-panel" id="filter-panel" role="region" aria-labelledby="filters-show-hide" <% if filter_remove_links.none? %>hidden=""<% end %>>
+        <div class="filter-panel govuk-!-margin-bottom-5" id="filter-panel" role="region" aria-labelledby="filters-show-hide" <% if filter_remove_links.none? %>hidden=""<% end %>>
           <div class="filters-sorting">
               <%= render "sorting" %>
           </div>
@@ -81,7 +81,7 @@
   <div class="govuk-grid-column-two-thirds">
     <%= render "filters_remove" %>
   </div>
-  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
+  <div class="govuk-grid-column-two-thirds">
 
     <%= render "govuk_publishing_components/components/document_list", {
       items: search.results.map { |result|

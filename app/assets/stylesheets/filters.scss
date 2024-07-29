@@ -151,10 +151,17 @@
 
 
 .govuk-button-group {
+    .govuk-button {
+        flex-grow: 1;
+    }
+
+    .govuk-link {
+        margin: 0;
+        flex-basis: 50%;
+    }
+    
     .govuk-button,
     .govuk-link {
-        flex-basis: 50%;
-        margin: 0;
         text-align: center;
 
         @include govuk-media-query($until: tablet) {
