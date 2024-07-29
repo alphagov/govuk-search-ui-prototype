@@ -53,8 +53,8 @@
   .facet-tag {
     @include govuk-media-query($until: tablet) {
       display: inline-block;
-      background: none;
       border: 2px solid $govuk-input-border-colour;
+      background-position: 10px 13px;
     }
 
     text-decoration: none;
