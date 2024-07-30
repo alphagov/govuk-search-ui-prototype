@@ -22,7 +22,7 @@
       <div id="panelGroup" class="accordion">
         <div class="filter-header" data-module="accordion">
           <%= render "govuk_publishing_components/components/heading", {
-            text: pluralize(search.total_size, "result"),
+            text: pluralize(number_with_delimiter(search.total_size), "result"),
             id: "js-result-count",
             font_size: "s",
             margin_bottom: 2,
