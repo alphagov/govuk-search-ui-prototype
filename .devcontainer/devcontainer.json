@@ -8,7 +8,7 @@
 			"RUBY_VERSION": "3.3.2"
 		}
 	},
-	"postCreateCommand": "bundle install && yarn install",
+	"postCreateCommand": "bundle install && yarn install && yarn run fix-gpc-from-source",
 	"customizations": {
 		"vscode": {
 			"extensions": [
