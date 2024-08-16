@@ -5,9 +5,10 @@
     "@trevoreyre/autocomplete-js": "^3.0.2",
     "accessible-autocomplete": "^3.0.0",
     "esbuild": "^0.21.5",
-    "govuk-frontend": "^5.4.0"
+    "govuk-frontend": "5.1.0"
   },
   "scripts": {
+    "preinstall": "cd $(bundle info govuk_publishing_components --path) && yarn install --production",
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
   }
 }
