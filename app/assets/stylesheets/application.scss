@@ -2,65 +2,73 @@
 
 @import "playground";
 
-@import "autocomplete";
-
 @import "accordion";
 
 @import "home";
 
 @import "filters";
 
-@import "facet-tag"; 
+@import "facet-tag";
 
 .gem-c-search {
-    margin-bottom: 0;
+  margin-bottom: 0;
+}
+
+.homepage-header {
+  padding-bottom: 30px;
+
+  .gem-c-search__label {
+    background-color: transparent;
+    color: #fff !important;
+  }
 }
 
 //horrible temporary menu hack
 #super-search-menu-toggle {
-    width: auto;
-    line-height: 1.25;
+  width: auto;
+  line-height: 1.25;
 }
 
 .navigation-search-item-hack {
-    font-size: 16px;
-    line-height: 1.25;
-    padding-left: 4px;
-    
+  font-size: 16px;
+  line-height: 1.25;
+  padding-left: 4px;
+
 }
 
 .gem-c-layout-super-navigation-header__search-toggle-button-link-icon {
-    height: 15px;
-    width: 15px;
+  height: 15px;
+  width: 15px;
 }
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
-    /* display: none;
+  /* display: none;
     -webkit-appearance: none; */
-    margin:0;
+  margin: 0;
 }
+
 input[type="date"]::-webkit-datetime-edit {
-    display:none;
+  display: none;
 }
 
 input[type="date"] {
-    height: 26px;
-    border: 2px solid $govuk-input-border-colour;
+  height: 26px;
+  border: 2px solid $govuk-input-border-colour;
 }
 
 input[type="date"]:focus {
-    outline: none;
-    text-decoration: none;
-    outline: 3px solid rgba(0, 0, 0, 0);
-    color: #0b0c0c;
-    background-color: #fd0;
-    box-shadow: 0 -2px #fd0, 0 4px #0b0c0c;
-    text-decoration: none;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
+  outline: none;
+  text-decoration: none;
+  outline: 3px solid rgba(0, 0, 0, 0);
+  color: #0b0c0c;
+  background-color: #fd0;
+  box-shadow: 0 -2px #fd0, 0 4px #0b0c0c;
+  text-decoration: none;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .govuk-checkboxes__conditional {
-    display: flex;
+  display: flex;
 }

@@ -12,7 +12,7 @@ gem "sprockets-rails"
 gem "tzinfo-data", platforms: %i[windows jruby]
 
 gem "google-cloud-discovery_engine"
-gem "govuk_publishing_components"
+gem "govuk_publishing_components", git: "https://github.com/alphagov/govuk_publishing_components.git", branch: "dynamic-autocomplete"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows]
