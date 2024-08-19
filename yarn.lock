@@ -117,15 +117,10 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.21.5.tgz#acad351d582d157bb145535db2a6ff53dd514b5c"
   integrity sha512-tQd/1efJuzPC6rCFwEvLtci/xNFcTZknmXs98FYDfGE4wP9ClFV98nyKrzJKVPMhdDnjzLhdUyMX4PsQAPjwIw==
 
-"@trevoreyre/autocomplete-js@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.npmjs.org/@trevoreyre/autocomplete-js/-/autocomplete-js-3.0.2.tgz"
-  integrity sha512-MwHBJUFu+9VDB2GPBVm1BqwyKMO7r59F0E+Xzw5tYPfkOi+jy4+VBtc/+KlGyzZNRK4Inlyert8JL3JB7FcSUA==
-
-accessible-autocomplete@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/accessible-autocomplete/-/accessible-autocomplete-3.0.0.tgz"
-  integrity sha512-Kpm6EX+jjD0AurWfzSP4EVLEKsLUWCazZwidjum+8FCRtSINeaPzVa3ElKVGWvSqVZN9zjeSBF8cirhYEZjW1A==
+axe-core@^4.10.0:
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.10.0.tgz#d9e56ab0147278272739a000880196cdfe113b59"
+  integrity sha512-Mr2ZakwQ7XUAjp7pAwQWRhhK8mQQ6JAaNWSjmjxil0R8BPioMtQsTLOolGYkji1rcL++3dCqZA3zWqpT+9Ew6g==
 
 esbuild@^0.21.5:
   version "0.21.5"
@@ -160,3 +155,13 @@ govuk-frontend@5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-5.1.0.tgz#55e520940b587ddd023e96251efaa076acc9bd5f"
   integrity sha512-Dc3J+uOI4i2VR3BVyfxbf6qVjTT4n4bBqbD0/Io6feP8pt/4IfKdP1vWimZf+BwMKKMXacw10hmdy5UcD6Cr8w==
+
+govuk-single-consent@^3.0.9:
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/govuk-single-consent/-/govuk-single-consent-3.0.9.tgz#e197bba4011c11c613807fd3635a8e0a007d914b"
+  integrity sha512-QtWIck/1gnR6eY6J3jw6+LwLsQN6U5upjRH/xyHjy5elrZZ7LDCVmMju4yzDDHMgOTn+TwRBRS/0V3Lqn3c2ew==
+
+sortablejs@^1.15.2:
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.15.2.tgz#4e9f7bda4718bd1838add9f1866ec77169149809"
+  integrity sha512-FJF5jgdfvoKn1MAKSdGs33bIqLi3LmsgVTliuX6iITj834F+JRQZN90Z93yql8h0K2t0RwDPBmxwlbZfDcxNZA==
