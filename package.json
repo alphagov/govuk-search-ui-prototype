@@ -2,10 +2,11 @@
   "name": "govuk-search-ui-prototype",
   "private": true,
   "dependencies": {
-    "@trevoreyre/autocomplete-js": "^3.0.2",
-    "accessible-autocomplete": "^3.0.0",
     "esbuild": "^0.21.5",
-    "govuk-frontend": "^5.4.0"
+    "axe-core": "^4.10.0",
+    "govuk-frontend": "5.1.0",
+    "govuk-single-consent": "^3.0.9",
+    "sortablejs": "^1.15.2"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"

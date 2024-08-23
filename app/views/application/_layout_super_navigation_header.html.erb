@@ -374,33 +374,31 @@
                 role="search"
                 aria-label="Site-wide"
               >
+              
+          <%= render "govuk_publishing_components/components/autocomplete", {
+            source: "http://127.0.0.1:3000/api/autocompletes",
+            suggestion_icon: true,
+            submit_form_on_select: true
+          } do %>
+          <%= render "govuk_publishing_components/components/search", {
+                            inline_label: false,
+                            label_size: "m",
+                            label_text: search_text,
+                            label_custom_class: "gem-c-layout-super-navigation-header__search-label--large-navbar",
+                            size: "large",
+                            margin_bottom: 0,
+                            data_attributes: {
+                              track_category: "headerClicked",
+                              track_action: "searchSubmitted",
+                              track_label: "/search/all",
+                              track_dimension: t("components.search_box.label"),
+                              track_dimension_index: 29,
+                            },
+                          } %>
+          <% end %>
+                
 
-                <%= tag.div id: "header-autocomplete", class: "govuk-form-group autocomplete", data: { module: "accessible-autocomplete" } do %>
 
-                <%= render "govuk_publishing_components/components/search", {
-                  inline_label: false,
-                  label_size: "m",
-                  label_text: search_text,
-                  label_custom_class: "gem-c-layout-super-navigation-header__search-label--large-navbar",
-                  size: "large",
-                  margin_bottom: 0,
-                  data_attributes: {
-                    track_category: "headerClicked",
-                    track_action: "searchSubmitted",
-                    track_label: "/search/all",
-                    track_dimension: t("components.search_box.label"),
-                    track_dimension_index: 29,
-                  },
-                } %>
-
-  <%= tag.div class: "autocomplete-result-container" do %>
-
-
-    <%= tag.ul class: "autocomplete-result-list govuk-body" %>
-
-
-  <% end %>
-<% end %>
 
 
               </form>
